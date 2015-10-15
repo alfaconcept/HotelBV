@@ -3,13 +3,13 @@ package br.com.fiap.beans;
 import java.util.Date;
 
 public class Funcionario extends Pessoa{
-	private Date dataAdmissao;
+	private Date dtAdmissao;
 	private String dsCargo;
 	
 	public Funcionario(int codPessoa, String nomePessoa, br.com.fiap.beans.Endereco endereco, int cpf, int rg,
-			Date dtNascimento, Date dataAdmissao, String dsCargo) {
+			Date dtNascimento, Date dtAdmissao, String dsCargo) {
 		super(codPessoa, nomePessoa, endereco, cpf, rg, dtNascimento);
-		this.dataAdmissao = dataAdmissao;
+		this.dtAdmissao = dtAdmissao;
 		this.dsCargo = dsCargo;
 	}
 
@@ -17,12 +17,12 @@ public class Funcionario extends Pessoa{
 		super();
 	}
 
-	public Date getDataAdmissao() {
-		return dataAdmissao;
+	public Date getdtAdmissao() {
+		return dtAdmissao;
 	}
 
-	public void setDataAdmissao(Date dataAdmissao) {
-		this.dataAdmissao = dataAdmissao;
+	public void setdtAdmissao(Date dtAdmissao) {
+		this.dtAdmissao = dtAdmissao;
 	}
 
 	public String getDsCargo() {
