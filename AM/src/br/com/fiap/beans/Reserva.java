@@ -115,9 +115,9 @@ public class Reserva {
 
 	public void setVlrReserva(double vlrReserva) {
 		// Obtem o valor do tipo de quarto
-		double VlTipoQuarto = this.tipoQuarto.getTipoQuarto().getVlTipoQuarto();
+//		double VlTipoQuarto = this.tipoQuarto.getTipoQuarto().getVlTipoQuarto();
 		// Multiplica o valor do tipo de quarto pela quantidade de quartos
-		this.vlrReserva = (VlTipoQuarto * qtQuarto);
+		this.vlrReserva = (vlrReserva * this.qtQuarto);
 	}
 
 	public Cliente getCliente() {
