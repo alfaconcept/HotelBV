@@ -1,8 +1,7 @@
 package br.com.fiap.beans;
 
+import java.sql.Timestamp;
 import java.util.Date;
-
-import com.sun.jmx.snmp.Timestamp;
 
 public class Reserva {
 	private int cdReserva;
@@ -132,6 +131,7 @@ public class Reserva {
 		int qtAdulto = this.qtAdulto;	// Obter numero de adultos
 		Timestamp dtInicial = new Timestamp(this.dtEntrada.getTime());
 		Timestamp dtFinal = new Timestamp(this.dtSaida.getTime());// obter numero de dias de estadia
+		long qtdDias = dtFinal.getTime() - dtInicial.getTime();
 		// Obter valor do tipo de quarto
 	}
 		
