@@ -1,6 +1,7 @@
 package br.com.fiap.beans;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Reserva {
@@ -127,12 +128,17 @@ public class Reserva {
 	}
 	
 	public void calcularValorReserva(){
-		int qtCrianca = this.qtCrianca;// Obter numero de crianças
-		int qtAdulto = this.qtAdulto;	// Obter numero de adultos
-		Timestamp dtInicial = new Timestamp(this.dtEntrada.getTime());
-		Timestamp dtFinal = new Timestamp(this.dtSaida.getTime());// obter numero de dias de estadia
-		long qtdDias = dtFinal.getTime() - dtInicial.getTime();
-		// Obter valor do tipo de quarto
+		// tranformamos as Datas em timestamp
+		Timestamp dtInicial = new Timestamp(this.dtEntrada.getTime());  
+		Timestamp dtFinal = new Timestamp(this.dtSaida.getTime()); 
+		
+		// Subtraimos os timestamps e realizamos o calculo para converter o resultado para dias
+		int qtdDias = (int) (dtFinal.getTime() - dtInicial.getTime()) / ((1000*60*60*24));	
+		
+		// Dias multiplicado pelo valor do quarto resulta no valor da reserva
+		double vlrReserva = (qtdDias*this.tipoQuarto.getTipoQuarto().getVlTipoQuarto());
+		// Atribui o valor da reserva
+		setVlrReserva(vlrReserva);
 	}
 		
 }
