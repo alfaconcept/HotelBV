@@ -2,6 +2,8 @@ package br.com.fiap.beans;
 
 import java.util.Date;
 
+import com.sun.jmx.snmp.Timestamp;
+
 public class Reserva {
 	private int cdReserva;
 	private Date dtSolicitacao;
@@ -114,10 +116,7 @@ public class Reserva {
 	}
 
 	public void setVlrReserva(double vlrReserva) {
-		// Obtem o valor do tipo de quarto
-//		double VlTipoQuarto = this.tipoQuarto.getTipoQuarto().getVlTipoQuarto();
-		// Multiplica o valor do tipo de quarto pela quantidade de quartos
-		this.vlrReserva = (vlrReserva * this.qtQuarto);
+		this.vlrReserva = vlrReserva;
 	}
 
 	public Cliente getCliente() {
@@ -126,6 +125,14 @@ public class Reserva {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	
+	public void calcularValorReserva(){
+		int qtCrianca = this.qtCrianca;// Obter numero de crianças
+		int qtAdulto = this.qtAdulto;	// Obter numero de adultos
+		Timestamp dtInicial = new Timestamp(this.dtEntrada.getTime());
+		Timestamp dtFinal = new Timestamp(this.dtSaida.getTime());// obter numero de dias de estadia
+		// Obter valor do tipo de quarto
 	}
 		
 }

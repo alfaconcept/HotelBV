@@ -11,6 +11,8 @@ public class Data {
 		SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy"); // Definimos a máscara da data
 		Date dataUsuario=sdf.parse(data); // tranformamos a string recebida em uma Data
 		System.out.println(sdf.format(dataUsuario)); // Printamos a data na mascara definida
+//		Timestamp dtInicial = new Timestamp(this.dtEntrada.getTime());
+//		Timestamp dtFinal = new Timestamp(this.dtSaida.getTime());// obter numero de dias de estadia
 	}
 	
 }
