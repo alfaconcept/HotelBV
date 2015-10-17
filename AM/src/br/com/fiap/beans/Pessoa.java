@@ -5,7 +5,7 @@ import java.util.Date;
 public class Pessoa {
 	private int cdPessoa;
 	private String nmPessoa;
-	private Endereco Endereco;
+	private Endereco endereco;
 	private int cpf;
 	private int rg;
 	private Date dtNascimento ;
@@ -15,7 +15,7 @@ public class Pessoa {
 		super();
 		this.cdPessoa = cdPessoa;
 		this.nmPessoa = nmPessoa;
-		Endereco = endereco;
+		this.endereco = endereco;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.dtNascimento = dtNascimento;
@@ -42,11 +42,11 @@ public class Pessoa {
 	}
 
 	public Endereco getEndereco() {
-		return Endereco;
+		return endereco;
 	}
 
 	public void setEndereco(Endereco endereco) {
-		Endereco = endereco;
+		this.endereco = endereco;
 	}
 
 	public int getCpf() {
