@@ -118,5 +118,7 @@ public class ClienteBO {
 		if (codPessoa == 0) {
 			throw new Excecoes("Por favor, informe o código do cliente");
 		}
+		
+		// new ClienteDAO().deleteCliente(codPessoa);
 	}
 }
