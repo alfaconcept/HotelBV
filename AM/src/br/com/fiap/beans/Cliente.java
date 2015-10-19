@@ -1,7 +1,7 @@
 package br.com.fiap.beans;
 
 import java.util.Date;
-
+teste
 public class Cliente extends Pessoa{
 	private String dsEmail;
 	private String dsSenhaAcesso;
