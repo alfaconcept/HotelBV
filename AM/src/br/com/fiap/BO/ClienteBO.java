@@ -2,6 +2,7 @@ package br.com.fiap.BO;
 
 import java.util.List;
 
+import br.com.fiap.DAO.ClienteDAO;
 import br.com.fiap.beans.Cliente;
 import br.com.fiap.excecoes.Excecoes;
 
@@ -120,5 +121,17 @@ public class ClienteBO {
 		}
 		
 		// new ClienteDAO().deleteCliente(codPessoa);
+	}
+	
+	public void loginCliente(Cliente cliente) throws Exception{
+		if (cliente.getDsEmail().equals("")) {
+			throw new Excecoes("Por favor, informe seu email para realizar login");
+		}
+		
+		if (cliente.getDsSenhaAcesso().equals("")) {
+			throw new Excecoes("Por favor, informe sua senha para realizar login");
+		}
+		
+		// new ClienteDAO().loginCliente(cliente);
 	}
 }
