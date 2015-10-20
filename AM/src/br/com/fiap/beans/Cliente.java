@@ -3,31 +3,64 @@ package br.com.fiap.beans;
 import java.util.Date;
 
 public class Cliente extends Pessoa{
+	private int cpf;
+	private int rg;
+	private Date dtNascimento;
 	private String dsEmail;
 	private String dsSenhaAcesso;
-	
-	public Cliente(int codPessoa, String nomePessoa, br.com.fiap.beans.Endereco endereco, int cpf, int rg,
-			Date dtNascimento, String dsEmail, String dsSenhaAcesso) {
-		super(codPessoa, nomePessoa, endereco, cpf, rg, dtNascimento);
+		
+	public Cliente(int cdPessoa, String nmPessoa, Endereco endereco,
+			Telefone telefone, int cpf, int rg, Date dtNascimento,
+			String dsEmail, String dsSenhaAcesso) {
+		super(cdPessoa, nmPessoa, endereco, telefone);
+		this.cpf = cpf;
+		this.rg = rg;
+		this.dtNascimento = dtNascimento;
 		this.dsEmail = dsEmail;
 		this.dsSenhaAcesso = dsSenhaAcesso;
 	}
-	
+
 	public Cliente() {
 		super();
 	}
-	
+
+	public int getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(int cpf) {
+		this.cpf = cpf;
+	}
+
+	public int getRg() {
+		return rg;
+	}
+
+	public void setRg(int rg) {
+		this.rg = rg;
+	}
+
+	public Date getDtNascimento() {
+		return dtNascimento;
+	}
+
+	public void setDtNascimento(Date dtNascimento) {
+		this.dtNascimento = dtNascimento;
+	}
+
 	public String getDsEmail() {
 		return dsEmail;
 	}
+
 	public void setDsEmail(String dsEmail) {
 		this.dsEmail = dsEmail;
 	}
+
 	public String getDsSenhaAcesso() {
 		return dsSenhaAcesso;
 	}
+
 	public void setDsSenhaAcesso(String dsSenhaAcesso) {
 		this.dsSenhaAcesso = dsSenhaAcesso;
 	}
-	
 }

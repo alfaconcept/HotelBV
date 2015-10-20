@@ -9,7 +9,7 @@ import br.com.fiap.excecoes.Excecoes;
 public class ClienteBO {
 	
 	public void inserirCliente(Cliente cliente) throws Excecoes{
-		if (cliente.getnmPessoa().equals("")) {
+		if (cliente.getNmPessoa().equals("")) {
 			throw new Excecoes("Por favor, informe o seu nome");
 		}
 		

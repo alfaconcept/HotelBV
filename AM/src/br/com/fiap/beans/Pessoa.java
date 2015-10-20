@@ -1,43 +1,37 @@
 package br.com.fiap.beans;
 
-import java.util.Date;
-
 public class Pessoa {
 	private int cdPessoa;
 	private String nmPessoa;
 	private Endereco endereco;
-	private int cpf;
-	private int rg;
-	private Date dtNascimento ;
+	private Telefone telefone;
 	
-	public Pessoa(int cdPessoa, String nmPessoa, br.com.fiap.beans.Endereco endereco, int cpf, int rg,
-			Date dtNascimento) {
+	public Pessoa(int cdPessoa, String nmPessoa, Endereco endereco,
+			Telefone telefone) {
 		super();
 		this.cdPessoa = cdPessoa;
 		this.nmPessoa = nmPessoa;
 		this.endereco = endereco;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.dtNascimento = dtNascimento;
+		this.telefone = telefone;
 	}
 
 	public Pessoa() {
 		super();
 	}
 
-	public int getcdPessoa() {
+	public int getCdPessoa() {
 		return cdPessoa;
 	}
 
-	public void setcdPessoa(int cdPessoa) {
+	public void setCdPessoa(int cdPessoa) {
 		this.cdPessoa = cdPessoa;
 	}
 
-	public String getnmPessoa() {
+	public String getNmPessoa() {
 		return nmPessoa;
 	}
 
-	public void setnmPessoa(String nmPessoa) {
+	public void setNmPessoa(String nmPessoa) {
 		this.nmPessoa = nmPessoa;
 	}
 
@@ -49,28 +43,12 @@ public class Pessoa {
 		this.endereco = endereco;
 	}
 
-	public int getCpf() {
-		return cpf;
+	public Telefone getTelefone() {
+		return telefone;
 	}
 
-	public void setCpf(int cpf) {
-		this.cpf = cpf;
-	}
-
-	public int getRg() {
-		return rg;
-	}
-
-	public void setRg(int rg) {
-		this.rg = rg;
-	}
-
-	public Date getDtNascimento() {
-		return dtNascimento;
-	}
-
-	public void setDtNascimento(Date dtNascimento) {
-		this.dtNascimento = dtNascimento;
+	public void setTelefone(Telefone telefone) {
+		this.telefone = telefone;
 	}
 	
 }

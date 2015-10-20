@@ -2,18 +2,20 @@ package br.com.fiap.beans;
 
 public class Endereco {
 	private String cep;
-	private String rua;
+	private String tipoLog;
+	private String logradouro;
 	private int numero;
 	private String complemento;
 	private String bairro;
 	private String cidade;
 	private String estado;
 	
-	public Endereco(String cep, String rua, int numero, String complemento,
-			String bairro, String cidade, String estado) {
+	public Endereco(String cep, String tipoLog, String logradouro, int numero,
+			String complemento, String bairro, String cidade, String estado) {
 		super();
 		this.cep = cep;
-		this.rua = rua;
+		this.tipoLog = tipoLog;
+		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
 		this.bairro = bairro;
@@ -33,12 +35,20 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	public String getRua() {
-		return rua;
+	public String getTipoLog() {
+		return tipoLog;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setTipoLog(String tipoLog) {
+		this.tipoLog = tipoLog;
+	}
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 
 	public int getNumero() {
