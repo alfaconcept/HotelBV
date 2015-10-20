@@ -52,12 +52,12 @@ public class ClienteBO {
 		// new ClienteDAO().insertCliente(cliente);
 	}
 	
-	public Cliente pesquisarCliente(int cpf) throws Exception{
-		if (cpf == 0) {
+	public Cliente pesquisarCliente(int nrIdentificador) throws Exception{
+		if (nrIdentificador == 0) {
 			throw new Excecoes("Por favor, informe o CPF do cliente para realizar a busca");
 		}
 		
-		// return new ClienteDAO().findCliente(cpf);
+		// return new ClienteDAO().findCliente(nrIdentificador);
 		
 		return null; // REMOVER ESTA LINHA APÓS CRIAR OS MÉTODOS DAO
 	}
@@ -115,15 +115,15 @@ public class ClienteBO {
 		// new ClienteDAO().updateCliente(cliente);
 	}
 	
-	public void deletarCliente(int codPessoa) throws Exception{
-		if (codPessoa == 0) {
+	public void deletarCliente(int nrIdentificador) throws Exception{
+		if (nrIdentificador == 0) {
 			throw new Excecoes("Por favor, informe o código do cliente");
 		}
 		
-		// new ClienteDAO().deleteCliente(codPessoa);
+		// new ClienteDAO().deleteCliente(nrIdentificador);
 	}
 	
-	public void loginCliente(Cliente cliente) throws Exception{
+	public String loginCliente(Cliente cliente) throws Exception{
 		if (cliente.getDsEmail().equals("")) {
 			throw new Excecoes("Por favor, informe seu email para realizar login");
 		}
@@ -132,6 +132,7 @@ public class ClienteBO {
 			throw new Excecoes("Por favor, informe sua senha para realizar login");
 		}
 		
+		return "We Are Alfa!"; // Remover esta linha após criar o método DAO
 		// new ClienteDAO().loginCliente(cliente);
 	}
 }

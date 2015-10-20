@@ -29,8 +29,25 @@ public class ServletCliente extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		if (request.getParameter("action").equals("pesquisar")) {
+			try {
+				int nrIdentificador = Integer.parseInt(request.getParameter("nrIdentificador"));
+				Cliente cliente = new Cliente();
+				cliente = new ClienteBO().pesquisarCliente(nrIdentificador);
+				request.setAttribute("cliente", cliente);
+				request.getRequestDispatcher("dadosCliente.jsp").forward(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		} else if (request.getParameter("action").equals("deletar")){
+			try {
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
 	}
 
 	/**
@@ -38,13 +55,17 @@ public class ServletCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		if (request.getParameter("action").equals("login")) {
+		if (request.getParameter("action").equals("cadastrar")) {
+			
+		} else if (request.getParameter("action").equals("alterar")) {
+			
+		} else {
 			try {
 				Cliente cliente = new Cliente();
 				cliente.setDsEmail(request.getParameter("txtEmail"));
 				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
-				new ClienteBO().loginCliente(cliente);
-				request.setAttribute("user", "We Are Alfa!");
+				String nmUser = new ClienteBO().loginCliente(cliente);
+				request.setAttribute("user", nmUser);
 				request.getRequestDispatcher("reserva.jsp").forward(request, response);
 			} catch (Exception e) {
 				
