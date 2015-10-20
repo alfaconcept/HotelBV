@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.fiap.BO.ClienteBO;
 import br.com.fiap.beans.Cliente;
+import br.com.fiap.beans.Endereco;
 
 /**
  * Servlet implementation class ServletFuncionario
@@ -42,7 +43,9 @@ public class ServletCliente extends HttpServlet {
 			}
 		} else if (request.getParameter("action").equals("deletar")){
 			try {
-				
+				int nrIdentificador = Integer.parseInt(request.getParameter("nrIdentificador"));
+				new ClienteBO().deletarCliente(nrIdentificador);
+				request.getRequestDispatcher("clientes.jsp");
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -56,7 +59,22 @@ public class ServletCliente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if (request.getParameter("action").equals("cadastrar")) {
-			
+			try {
+				// Instancia e preenche o endereco do cliente
+				Endereco endereco = new Endereco();
+				endereco.setRua(request.getParameter("txtRua"));
+				endereco.setNumero(Integer.parseInt(request.getParameter("nrNumero")));
+				endereco.setCep(request.getParameter("txtCep"));
+				endereco.setComplemento(request.getParameter("txtComplemento"));
+				endereco.setBairro(request.getParameter("txtBairro"));
+				
+				Cliente cliente = new Cliente();
+				cliente.setnmPessoa(request.getParameter("txtNome"));
+				cliente.setCpf(Integer.parseInt(request.getParameter("nrCpf")));
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		} else if (request.getParameter("action").equals("alterar")) {
 			
 		} else {

@@ -13,7 +13,7 @@ public class ClienteBO {
 			throw new Excecoes("Por favor, informe o seu nome");
 		}
 		
-		if (cliente.getEndereco().getCep() == 0) {
+		if (cliente.getEndereco().getCep().equals("")) {
 			throw new Excecoes("Por favor, informe o seu CEP");
 		}
 		
@@ -76,7 +76,7 @@ public class ClienteBO {
 			throw new Excecoes("Por favor, informe o seu nome");
 		}
 		
-		if (cliente.getEndereco().getCep() == 0) {
+		if (cliente.getEndereco().getCep().equals("")) {
 			throw new Excecoes("Por favor, informe o seu CEP");
 		}
 		
