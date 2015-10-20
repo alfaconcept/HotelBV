@@ -47,6 +47,10 @@ public class FuncionarioBO {
 			throw new Excecoes("Por favor, informe a data de nascimento do funcionário");
 		}
 		
+		if (funcionario.getDsSenhaAcesso().equals("")) {
+			throw new Excecoes("Por favor, informe a senha de acesso do funcionário");
+		}
+		
 		// new FuncionarioDAO().insertFuncionario(funcionario);
 	}	
 
