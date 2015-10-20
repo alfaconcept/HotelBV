@@ -38,16 +38,19 @@ public class ServletCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		try {
-			Cliente cliente = new Cliente();
-			cliente.setDsEmail(request.getParameter("txtEmail"));
-			cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
-			new ClienteBO().loginCliente(cliente);
-			request.setAttribute("user", "UserTeste");
-			request.getRequestDispatcher("reserva.jsp").forward(request, response);
-		} catch (Exception e) {
-			
+		if (request.getParameter("action").equals("login")) {
+			try {
+				Cliente cliente = new Cliente();
+				cliente.setDsEmail(request.getParameter("txtEmail"));
+				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
+				new ClienteBO().loginCliente(cliente);
+				request.setAttribute("user", "We Are Alfa!");
+				request.getRequestDispatcher("reserva.jsp").forward(request, response);
+			} catch (Exception e) {
+				
+			}
 		}
+		
 		
 		
 		doGet(request, response);
