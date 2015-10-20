@@ -19,4 +19,5 @@
   	<servlet-name>ServletCliente</servlet-name>
   	<url-pattern>/ServletCliente</url-pattern>
   </servlet-mapping>
+  
 </web-app>

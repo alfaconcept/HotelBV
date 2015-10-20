@@ -1,10 +1,14 @@
 package br.com.fiap.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.com.fiap.BO.ClienteBO;
+import br.com.fiap.beans.Cliente;
 
 /**
  * Servlet implementation class ServletFuncionario
@@ -34,8 +38,17 @@ public class ServletCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.getWriter().println(request.getParameter("txtEmail"));
-		response.getWriter().println(request.getParameter("pwdSenha"));
+		try {
+			Cliente cliente = new Cliente();
+			cliente.setDsEmail(request.getParameter("txtEmail"));
+			cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
+			new ClienteBO().loginCliente(cliente);
+			request.setAttribute("user", "UserTeste");
+			request.getRequestDispatcher("reserva.jsp").forward(request, response);
+		} catch (Exception e) {
+			
+		}
+		
 		
 		doGet(request, response);
 	}
