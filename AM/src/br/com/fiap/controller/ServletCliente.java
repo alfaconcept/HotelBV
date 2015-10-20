@@ -67,10 +67,15 @@ public class ServletCliente extends HttpServlet {
 				endereco.setCep(request.getParameter("txtCep"));
 				endereco.setComplemento(request.getParameter("txtComplemento"));
 				endereco.setBairro(request.getParameter("txtBairro"));
+				endereco.setCidade(request.getParameter("txtCidade"));
+				endereco.setEstado(request.getParameter("txtEstado"));
 				
+				// Instancia e preenche o objeto cliente
 				Cliente cliente = new Cliente();
+				cliente.setEndereco(endereco);
 				cliente.setnmPessoa(request.getParameter("txtNome"));
 				cliente.setCpf(Integer.parseInt(request.getParameter("nrCpf")));
+				cliente.setRg(Integer.parseInt(request.getParameter("nrRg")));
 				
 			} catch (Exception e) {
 				// TODO: handle exception

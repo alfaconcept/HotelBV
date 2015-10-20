@@ -7,8 +7,8 @@ import java.util.Date;
 public class Data {	
 	public static void main (String[] args) throws ParseException{
 		SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy"); // Definimos a máscara da data
-		Date dtInicial=sdf.parse("1995/05/31"); // tranformamos a string recebida do formulario em uma Data
-		Date dtFinal = sdf.parse("1995/06/05"); // tranformamos a string recebida do formulario em uma Data
+		Date dtInicial=sdf.parse("31/05/1995"); // tranformamos a string recebida do formulario em uma Data
+		Date dtFinal = sdf.parse("05/06/1995"); // tranformamos a string recebida do formulario em uma Data
 		Timestamp dtInicial2 = new Timestamp(dtInicial.getTime()); // tranformamos a Data em timestamp 
 		Timestamp dtFinal2 = new Timestamp(dtFinal.getTime()); // tranformamos a Data em timestamp
 		
