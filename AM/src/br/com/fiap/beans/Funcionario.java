@@ -5,23 +5,26 @@ import java.util.Date;
 public class Funcionario extends Pessoa{
 	private Date dtAdmissao;
 	private String dsCargo;
+	private String dsSenhaAcesso;
 	
-	public Funcionario(int codPessoa, String nomePessoa, br.com.fiap.beans.Endereco endereco, int cpf, int rg,
-			Date dtNascimento, Date dtAdmissao, String dsCargo) {
-		super(codPessoa, nomePessoa, endereco, cpf, rg, dtNascimento);
+	public Funcionario(int cdPessoa, String nmPessoa, Endereco endereco,
+			int cpf, int rg, Date dtNascimento, Date dtAdmissao,
+			String dsCargo, String dsSenhaAcesso) {
+		super(cdPessoa, nmPessoa, endereco, cpf, rg, dtNascimento);
 		this.dtAdmissao = dtAdmissao;
 		this.dsCargo = dsCargo;
+		this.dsSenhaAcesso = dsSenhaAcesso;
 	}
-
-	public Funcionario() {
+	
+	public Funcionario(){
 		super();
 	}
 
-	public Date getdtAdmissao() {
+	public Date getDtAdmissao() {
 		return dtAdmissao;
 	}
 
-	public void setdtAdmissao(Date dtAdmissao) {
+	public void setDtAdmissao(Date dtAdmissao) {
 		this.dtAdmissao = dtAdmissao;
 	}
 
@@ -32,6 +35,13 @@ public class Funcionario extends Pessoa{
 	public void setDsCargo(String dsCargo) {
 		this.dsCargo = dsCargo;
 	}
-	
+
+	public String getDsSenhaAcesso() {
+		return dsSenhaAcesso;
+	}
+
+	public void setDsSenhaAcesso(String dsSenhaAcesso) {
+		this.dsSenhaAcesso = dsSenhaAcesso;
+	}
 	
 }
