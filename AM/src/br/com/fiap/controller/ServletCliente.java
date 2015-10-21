@@ -1,8 +1,10 @@
 package br.com.fiap.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -62,41 +64,41 @@ public class ServletCliente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if (request.getParameter("action").equals("cadastrar")) {
+			
 			try {
 				
-				// Trabalhando com a data do formulário
-				SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd"); // Definimos a máscara da data
-				Date teste =sdf.parse(request.getParameter("dtNascimento")); // tranformamos a string recebida do formulario em uma Data
-				response.getWriter().println(request.getParameter("dtNascimento"));
-				response.getWriter().println(teste);
-				
 				// Instancia e preenche o endereco do cliente
-//				Endereco endereco = new Endereco();
-//				endereco.setCep(request.getParameter("txtCep"));
-//				endereco.setTipoLog(request.getParameter("txtTipoLog"));
-//				endereco.setLogradouro(request.getParameter("txtLogradouro"));
-//				endereco.setNumero(Integer.parseInt(request.getParameter("nrNumero")));				
-//				endereco.setComplemento(request.getParameter("txtComplemento"));
-//				endereco.setBairro(request.getParameter("txtBairro"));
-//				endereco.setCidade(request.getParameter("txtCidade"));
-//				endereco.setEstado(request.getParameter("txtEstado"));
-//				
-//				// Instancia e preenche o telefone do cliente
-//				Telefone telefone = new Telefone();
-//				telefone.setTipoFone(request.getParameter("txtTipoFone"));
-//				telefone.setDdd(Short.parseShort(request.getParameter("nrDdd")));
-//				telefone.setTelefone(Integer.parseInt(request.getParameter("nrTelefone")));
-//				telefone.setRamal(Integer.parseInt(request.getParameter("nrRamal")));
-//				
-//				// Instancia e preenche o objeto cliente
-//				Cliente cliente = new Cliente();
-//				cliente.setNmPessoa(request.getParameter("txtNome"));
-//				cliente.setEndereco(endereco);
-//				cliente.setTelefone(telefone);
-//				cliente.setCpf(Integer.parseInt(request.getParameter("nrCpf")));
-//				cliente.setRg(Integer.parseInt(request.getParameter("nrRg")));
-//				cliente.setDsEmail(request.getParameter("txtEmail"));
-//				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
+				Endereco endereco = new Endereco();
+				endereco.setCep(request.getParameter("txtCep"));
+				endereco.setTipoLog(request.getParameter("txtTipoLog"));
+				endereco.setLogradouro(request.getParameter("txtLogradouro"));
+				endereco.setNumero(Integer.parseInt(request.getParameter("nrNumero")));				
+				endereco.setComplemento(request.getParameter("txtComplemento"));
+				endereco.setBairro(request.getParameter("txtBairro"));
+				endereco.setCidade(request.getParameter("txtCidade"));
+				endereco.setEstado(request.getParameter("txtEstado"));
+				
+				// Instancia e preenche o telefone do cliente
+				Telefone telefone = new Telefone();
+				telefone.setTipoFone(request.getParameter("txtTipoFone"));
+				telefone.setDdd(Short.parseShort(request.getParameter("nrDdd")));
+				telefone.setTelefone(Integer.parseInt(request.getParameter("nrTelefone")));
+				telefone.setRamal(Integer.parseInt(request.getParameter("nrRamal")));
+				
+				// Instancia e preenche o objeto cliente
+				Cliente cliente = new Cliente();
+				cliente.setNmPessoa(request.getParameter("txtNome"));
+				cliente.setEndereco(endereco);
+				cliente.setTelefone(telefone);
+				cliente.setCpf(Integer.parseInt(request.getParameter("nrCpf")));
+				cliente.setRg(Integer.parseInt(request.getParameter("nrRg")));
+				cliente.setDsEmail(request.getParameter("txtEmail"));
+				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
+				
+				DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+				Date dtNascimento = df.parse(request.getParameter("dtNascimento"));
+				
+				cliente.setDtNascimento(df.format(dtNascimento));
 				
 				
 				

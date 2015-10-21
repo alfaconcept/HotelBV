@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Cliente extends Pessoa{
 	private int cpf;
-	private int rg;
+	private String rg;
 	private Date dtNascimento;
 	private String dsEmail;
 	private String dsSenhaAcesso;
 		
 	public Cliente(int cdPessoa, String nmPessoa, Endereco endereco,
-			Telefone telefone, int cpf, int rg, Date dtNascimento,
+			Telefone telefone, int cpf, String rg, Date dtNascimento,
 			String dsEmail, String dsSenhaAcesso) {
 		super(cdPessoa, nmPessoa, endereco, telefone);
 		this.cpf = cpf;
@@ -32,11 +32,11 @@ public class Cliente extends Pessoa{
 		this.cpf = cpf;
 	}
 
-	public int getRg() {
+	public String getRg() {
 		return rg;
 	}
 
-	public void setRg(int rg) {
+	public void setRg(String rg) {
 		this.rg = rg;
 	}
 
