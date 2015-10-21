@@ -19,4 +19,11 @@ public class ClienteDAO {
 		
 	}
 	
+	public Cliente findCliente(int nrIdentificador){
+		String sql = "SELECT * FROM T_AM_AFC_CLIENTE WHERE cd_cliente = ? OR nr_cpf = ?";
+		
+		
+		return null;
+	}
+	
 }

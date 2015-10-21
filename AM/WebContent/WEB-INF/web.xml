@@ -9,15 +9,22 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>ServletCliente</servlet-name>
+    <servlet-class>br.com.fiap.controller.ServletCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCliente</servlet-name>
+    <url-pattern>/ServletCliente</url-pattern>
+  </servlet-mapping>
   
   <servlet>
-  	<servlet-name>ServletCliente</servlet-name>
-  	<servlet-class>br.com.fiap.controller.ServletCliente</servlet-class>
+    <servlet-name>ServletReserva</servlet-name>
+    <servlet-class>br.com.fiap.controller.ServletReserva</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>ServletCliente</servlet-name>
-  	<url-pattern>/ServletCliente</url-pattern>
+    <servlet-name>ServletReserva</servlet-name>
+    <url-pattern>/ServletReserva</url-pattern>
   </servlet-mapping>
   
 </web-app>

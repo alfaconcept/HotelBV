@@ -17,9 +17,9 @@ public class ClienteBO {
 			throw new Excecoes("Por favor, informe o seu CEP");
 		}
 		
-		if (cliente.getEndereco().getRua().equals("")) {
-			throw new Excecoes("Por favor, informe sua rua");
-		}
+//		if (cliente.getEndereco().getRua().equals("")) {
+//			throw new Excecoes("Por favor, informe sua rua");
+//		}
 		
 		if (cliente.getEndereco().getNumero() == 0) {
 			throw new Excecoes("Por favor, informe o numero de seu endereço");
@@ -41,9 +41,9 @@ public class ClienteBO {
 			throw new Excecoes("Por favor, informe o seu CPF");
 		}
 		
-		if (cliente.getRg() == 0) {
-			throw new Excecoes("Por favor, informe o seu RG");
-		}
+//		if (cliente.getRg() == 0) {
+//			throw new Excecoes("Por favor, informe o seu RG");
+//		}
 		
 		if (cliente.getDtNascimento() == null) {
 			throw new Excecoes("Por favor, informe sua data de nascimento");
@@ -57,7 +57,7 @@ public class ClienteBO {
 			throw new Excecoes("Por favor, informe o CPF do cliente para realizar a busca");
 		}
 		
-		// return new ClienteDAO().findCliente(nrIdentificador);
+		return new ClienteDAO().findCliente(nrIdentificador);
 		
 		return null; // REMOVER ESTA LINHA APÓS CRIAR OS MÉTODOS DAO
 	}
@@ -68,21 +68,21 @@ public class ClienteBO {
 	}
 	
 	public void atualizarCliente(Cliente cliente)  throws Exception{
-		if (cliente.getcdPessoa() == 0) {
-			throw new Excecoes("Por favor, informe o código do cliente");
-		}
+//		if (cliente.getcdPessoa() == 0) {
+//			throw new Excecoes("Por favor, informe o código do cliente");
+//		}
 		
-		if (cliente.getnmPessoa().equals("")) {
-			throw new Excecoes("Por favor, informe o seu nome");
-		}
+//		if (cliente.getnmPessoa().equals("")) {
+//			throw new Excecoes("Por favor, informe o seu nome");
+//		}
 		
 		if (cliente.getEndereco().getCep().equals("")) {
 			throw new Excecoes("Por favor, informe o seu CEP");
 		}
 		
-		if (cliente.getEndereco().getRua().equals("")) {
-			throw new Excecoes("Por favor, informe sua rua");
-		}
+//		if (cliente.getEndereco().getRua().equals("")) {
+//			throw new Excecoes("Por favor, informe sua rua");
+//		}
 		
 		if (cliente.getEndereco().getNumero() == 0) {
 			throw new Excecoes("Por favor, informe o numero de seu endereço");
@@ -104,9 +104,9 @@ public class ClienteBO {
 			throw new Excecoes("Por favor, informe o seu CPF");
 		}
 		
-		if (cliente.getRg() == 0) {
-			throw new Excecoes("Por favor, informe o seu RG");
-		}
+//		if (cliente.getRg() == 0) {
+//			throw new Excecoes("Por favor, informe o seu RG");
+//		}
 		
 		if (cliente.getDtNascimento() == null) {
 			throw new Excecoes("Por favor, informe sua data de nascimento");

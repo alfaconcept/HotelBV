@@ -7,8 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ServletCliente?action=cadastrar" method="POST">
-	<input type="date" name="dtNascimento">
+<form action="ServletReserva?action=reservar" method="GET">
+	<input type="text" value="reservar" name="action">
+	Data entrada: <input type="date" name="dtEntrada">
+	Data Saída: <input type="date" name="dtSaida">
+	Quantidade Adulto: <input type="text" name="nrQtdAdulto">
+	Quantidade Criança: <input type="text" name="nrQtdCrianca">
+	Quantidade quartos: <input type="text" name="nrQtdQuarto">
 	<input type="submit" value="testar data">
 </form>
 </body>
