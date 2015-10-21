@@ -114,7 +114,7 @@ public class ServletCliente extends HttpServlet {
 			// TODO
 		} else if (request.getParameter("action").equals("logar")){
 			try {
-//				Connection conn = ConnectionFactory.controlarInstancia().getConnection();
+				Connection conn = ConnectionFactory.controlarInstancia().getConnection();
 				Cliente cliente = new Cliente();
 				cliente.setDsEmail(request.getParameter("txtEmail"));
 				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
