@@ -14,6 +14,7 @@ public class Reserva {
 	private boolean statusReserva;
 	private double vlrReserva;
 	private Cliente cliente;
+	private String dsObservacao;
 	
 	public Reserva(int cdReserva, Date dtSolicitacao, Date dtEntrada,
 			Date dtSaida, int qtAdulto, int qtCrianca, Quarto tipoQuarto,
@@ -124,9 +125,17 @@ public class Reserva {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	public String getDsObservacao() {
+		return dsObservacao;
+	}
+
+	public void setDsObservacao(String dsObservacao) {
+		this.dsObservacao = dsObservacao;
+	}
 	
 	public double calcularValorReserva(){
-	
+		
 		// Subtraimos os timestamps e realizamos o calculo para converter o resultado para dias
 		int qtdDias = (int) (this.dtSaida.getTime() - this.dtEntrada.getTime()) / ((1000*60*60*24));	
 		
@@ -134,6 +143,5 @@ public class Reserva {
 		double vlrReserva = (qtdDias*200);
 		// Atribui o valor da reserva
 		return vlrReserva;		
-	}
-		
+	}		
 }
