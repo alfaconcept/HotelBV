@@ -19,16 +19,18 @@ public final class ConnectionFactory {
 	
 	//Conexão com o Banco Oracle
 	public Connection getConnection() throws Exception {
-		FileReader arquivo = new FileReader("/conexao/banco.txt");
+		/*
+		FileReader arquivo = new FileReader(system. "/conexao/banco.txt");
 		BufferedReader dados = new BufferedReader(arquivo);
 		String url = dados.readLine();
 		String usuario = dados.readLine();
-		String senha = dados.readLine();
+		String senha = dados.readLine();		
 		
+		*/
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		
-		return DriverManager.getConnection(url, usuario, senha);
-		//return DriverManager.getConnection("jdbc:oracle:thin:/:@192.168.60.15:1521:ORCL");
+		return DriverManager.getConnection("jdbc:oracle:thin:/:@192.168.60.15:1521:ORCL");
+		//return DriverManager.getConnection("jdbc:oracle:thin:/:@oracle.fiap.com:1521:ORCL","OPS$RM74737","09071987");
+		//return DriverManager.getConnection(url, usuario, senha);
 	}
 
 }
