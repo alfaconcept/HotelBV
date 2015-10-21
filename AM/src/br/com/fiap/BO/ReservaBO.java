@@ -1,12 +1,14 @@
 package br.com.fiap.BO;
 
+import java.sql.Connection;
+
 import br.com.fiap.beans.Reserva;
 import br.com.fiap.excecoes.Excecoes;
 
 public class ReservaBO {
 	
 	
-	public void inserirReserva(Reserva reserva) throws Exception{
+	public void inserirReserva(Reserva reserva, Connection conn) throws Exception{
 		
 //		if (reserva.getCliente() == null) {
 //			throw new Excecoes("A reserva precisa de um cliente");
@@ -53,6 +55,8 @@ public class ReservaBO {
 		} else {
 			reserva.setVlrReserva(reserva.calcularValorReserva());
 		}
+		
+//		new ReservaDAO().insertReserva(reserva, conn);
 		
 		
 	}

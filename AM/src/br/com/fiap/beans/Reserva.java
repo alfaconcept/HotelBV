@@ -129,7 +129,7 @@ public class Reserva {
 	
 		// Subtraimos os timestamps e realizamos o calculo para converter o resultado para dias
 		int qtdDias = (int) (this.dtSaida.getTime() - this.dtEntrada.getTime()) / ((1000*60*60*24));	
-		System.out.println("aqui" + qtdDias);
+		
 		// Dias multiplicado pelo valor do quarto resulta no valor da reserva
 		double vlrReserva = (qtdDias*200);
 		// Atribui o valor da reserva

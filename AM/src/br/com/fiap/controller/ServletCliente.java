@@ -1,20 +1,25 @@
 package br.com.fiap.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import br.com.fiap.BO.ClienteBO;
 import br.com.fiap.beans.Cliente;
 import br.com.fiap.beans.Endereco;
 import br.com.fiap.beans.Telefone;
+import br.com.fiap.conexao.ConnectionFactory;
 
 /**
  * Servlet implementation class ServletFuncionario
@@ -40,7 +45,7 @@ public class ServletCliente extends HttpServlet {
 			try {
 				int nrIdentificador = Integer.parseInt(request.getParameter("nrIdentificador"));
 				Cliente cliente = new Cliente();
-				cliente = new ClienteBO().pesquisarCliente(nrIdentificador);
+//				cliente = new ClienteBO().pesquisarCliente(nrIdentificador);
 				request.setAttribute("cliente", cliente);
 				request.getRequestDispatcher("dadosCliente.jsp").forward(request, response);
 			} catch (Exception e) {
@@ -91,14 +96,14 @@ public class ServletCliente extends HttpServlet {
 				cliente.setEndereco(endereco);
 				cliente.setTelefone(telefone);
 				cliente.setCpf(Integer.parseInt(request.getParameter("nrCpf")));
-				cliente.setRg(Integer.parseInt(request.getParameter("nrRg")));
+//				cliente.setRg(Integer.parseInt(request.getParameter("nrRg")));
 				cliente.setDsEmail(request.getParameter("txtEmail"));
 				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
 				
 				DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 				Date dtNascimento = df.parse(request.getParameter("dtNascimento"));
 				
-				cliente.setDtNascimento(df.format(dtNascimento));
+//				cliente.setDtNascimento(df.format(dtNascimento));
 				
 				
 				
@@ -106,17 +111,21 @@ public class ServletCliente extends HttpServlet {
 				// TODO: handle exception
 			}
 		} else if (request.getParameter("action").equals("alterar")) {
-			
-		} else {
+			// TODO
+		} else if (request.getParameter("action").equals("logar")){
 			try {
+//				Connection conn = ConnectionFactory.controlarInstancia().getConnection();
 				Cliente cliente = new Cliente();
 				cliente.setDsEmail(request.getParameter("txtEmail"));
 				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
-				String nmUser = new ClienteBO().loginCliente(cliente);
-				request.setAttribute("user", nmUser);
+//				cliente = new ClienteBO().loginCliente(cliente, conn);
+				HttpSession session = request.getSession();
+				session.setAttribute("cliente", cliente);
 				request.getRequestDispatcher("reserva.jsp").forward(request, response);
 			} catch (Exception e) {
-				
+				StringWriter errors = new StringWriter();
+				e.printStackTrace(new PrintWriter(errors));
+				response.getWriter().print(errors.toString());
 			}
 		}
 		

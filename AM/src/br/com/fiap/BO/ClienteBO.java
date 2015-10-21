@@ -1,5 +1,6 @@
 package br.com.fiap.BO;
 
+import java.sql.Connection;
 import java.util.List;
 
 import br.com.fiap.DAO.ClienteDAO;
@@ -52,15 +53,14 @@ public class ClienteBO {
 		// new ClienteDAO().insertCliente(cliente);
 	}
 	
-	public Cliente pesquisarCliente(int nrIdentificador) throws Exception{
-		if (nrIdentificador == 0) {
-			throw new Excecoes("Por favor, informe o CPF do cliente para realizar a busca");
-		}
-		
-		return new ClienteDAO().findCliente(nrIdentificador);
-		
-		return null; // REMOVER ESTA LINHA APÓS CRIAR OS MÉTODOS DAO
-	}
+//	public Cliente pesquisarCliente(int nrIdentificador, Connection conn) throws Exception{
+//		if (nrIdentificador == 0) {
+//			throw new Excecoes("Por favor, informe o CPF do cliente para realizar a busca");
+//		}
+//		
+//		return new ClienteDAO().findCliente(nrIdentificador, conn);
+//		
+//	}
 	
 	public List<Cliente> listarClientes() throws Exception{
 		// return new clienteDAO().selectAllCliente();
@@ -123,7 +123,7 @@ public class ClienteBO {
 		// new ClienteDAO().deleteCliente(nrIdentificador);
 	}
 	
-	public String loginCliente(Cliente cliente) throws Exception{
+	public Cliente loginCliente(Cliente cliente, Connection conn) throws Exception{
 		if (cliente.getDsEmail().equals("")) {
 			throw new Excecoes("Por favor, informe seu email para realizar login");
 		}
@@ -132,7 +132,6 @@ public class ClienteBO {
 			throw new Excecoes("Por favor, informe sua senha para realizar login");
 		}
 		
-		return "We Are Alfa!"; // Remover esta linha após criar o método DAO
-		// new ClienteDAO().loginCliente(cliente);
+		return new ClienteDAO().loginCliente(cliente, conn);
 	}
 }

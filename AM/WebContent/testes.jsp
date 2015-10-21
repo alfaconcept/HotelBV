@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ServletReserva?action=reservar" method="GET">
+<form action="ServletReserva?action=reservar" method="POST">
 	<input type="text" value="reservar" name="action">
 	Data entrada: <input type="date" name="dtEntrada">
 	Data Saída: <input type="date" name="dtSaida">

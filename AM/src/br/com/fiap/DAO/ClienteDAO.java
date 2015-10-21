@@ -1,5 +1,7 @@
 package br.com.fiap.DAO;
 
+import java.sql.Connection;
+
 import br.com.fiap.beans.Cliente;
 
 public class ClienteDAO {
@@ -19,7 +21,8 @@ public class ClienteDAO {
 		
 	}
 	
-	public Cliente findCliente(int nrIdentificador){
+	public Cliente loginCliente(Cliente cliente, Connection conexao){
+		
 		String sql = "SELECT * FROM T_AM_AFC_CLIENTE WHERE cd_cliente = ? OR nr_cpf = ?";
 		
 		
