@@ -1,9 +1,6 @@
 package br.com.fiap.DAO;
 
-import java.sql.Connection;
-
 import br.com.fiap.beans.Cliente;
-import br.com.fiap.conexao.ConnectionFactory;
 
 public class ClienteDAO {
 	
