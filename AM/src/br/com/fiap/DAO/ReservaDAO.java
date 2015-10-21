@@ -19,7 +19,7 @@ public class ReservaDAO {
 		
 		PreparedStatement estrutura1 = conn.prepareStatement(sql);
 		estrutura1.setInt(1, reserva.getCliente().getCdPessoa() );
-		estrutura1.setInt(2, 1);//Segundo o case, não existe funcionario vinculado a Reserva e sim, a hospedagem
+		estrutura1.setInt(2, 1);//Segundo o case, não existe funcionario vinculado a Reserva e sim à hospedagem
 		estrutura1.setString(3, df.format(reserva.getDtSolicitacao()));
 		estrutura1.setString(4, df.format(reserva.getDtEntrada()));
 		estrutura1.setString(5, df.format(reserva.getDtSaida()));
@@ -34,8 +34,12 @@ public class ReservaDAO {
 		estrutura2.setInt(1, reserva.getCliente().getCdPessoa());
 		estrutura2.setInt(2,reserva.getTipoQuarto().getNrQuarto());
 		estrutura2.setInt(3, (reserva.getQtAdulto()+reserva.getQtCrianca())); //Soma de Numero Adultos com Numero Crianças
+		estrutura2.setString(4, reserva.getDsObservacao());
 		
-		
+		estrutura1.execute();
+		estrutura2.execute();
+		estrutura1.close();
+		estrutura2.close();
 	}
 
 }
