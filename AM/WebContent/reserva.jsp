@@ -9,12 +9,9 @@
 </head>
 <body>
 Nome do Cliente: ${reserva.cliente.nmPessoa}<br>
-Email do Cliente: ${reserva.cliente.dsEmail }<br>
-Senha do Cliente: ${reserva.cliente.dsSenhaAcesso }<br>
 Numero do quarto: ${reserva.tipoQuarto.nrQuarto }<br>
 <!-- A linha abaixo formata a data para exibição -->
 <fmt:formatDate value="${reserva.dtEntrada }" var="dtSolicitacaoFormat" type="date" pattern="dd/MM/yyyy"/>
-Data de solicitação sem formatação: ${reserva.dtSolicitacao}<br>	
 Data de Solicitação formatada: ${dtSolicitacaoFormat }<br>
 <!-- A linha abaixo formata a data para exibição -->
 <fmt:formatDate value="${reserva.dtEntrada }" var="dtEntradaFormat" type="date" pattern="dd/MM/yyyy"/>	

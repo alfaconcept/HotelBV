@@ -11,16 +11,16 @@
 <fieldset>
 	<legend>Formulário de Reserva</legend>
 	<form action="ServletReserva?action=reservar" method="POST">
-		Nome do Cliente: <input type="text" name="txtNmCliente"><br>
+		<!-- Nome do Cliente: <input type="text" name="txtNmCliente"><br> -->
 		Email do Cliente: <input type="email" name="txtEmail"><br>
 		Senha do Cliente: <input type="password" name="pwdSenha"><br>
-		Numero do quarto: <input type="number" name="nrQuarto"><br>	
+		Nome do quarto: <input type="text" name="txtNmQuarto"><br>	
 		Data entrada: <input type="date" name="dtEntrada"><br>
 		Data Saída: <input type="date" name="dtSaida"><br>
 		Quantidade Adulto: <input type="text" name="nrQtdAdulto"><br>
 		Quantidade Criança: <input type="text" name="nrQtdCrianca"><br>
 		Quantidade quartos: <input type="text" name="nrQtdQuarto"><br>
-		<input type="submit" value="testar data">
+		<input type="submit" value="Testar Reserva">
 	</form>
 </fieldset>
 </body>

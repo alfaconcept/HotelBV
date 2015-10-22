@@ -3,6 +3,7 @@ package br.com.fiap.BO;
 import java.sql.Connection;
 import java.util.List;
 
+import br.com.fiap.DAO.QuartoDAO;
 import br.com.fiap.beans.Quarto;
 import br.com.fiap.excecoes.Excecoes;
 
@@ -32,9 +33,10 @@ public class QuartoBO {
 			throw new Excecoes("Por favor, informe o nome do tipo de quarto para realizar a busca");
 		}
 		
-		//return new QuartoDAO().findQuarto(cdQuarto, conn);
+//		return new QuartoDAO().findQuarto(txtNmQuarto, conn);
 		
-		return null; //REMOVER ESTA LINHA APÓS CRIAR OS MÉTODOS DAO
+		return new Quarto();
+
 	}
 	
 	
