@@ -118,7 +118,7 @@ public class ServletCliente extends HttpServlet {
 				Cliente cliente = new Cliente();
 				cliente.setDsEmail(request.getParameter("txtEmail"));
 				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
-//				cliente = new ClienteBO().loginCliente(cliente, conn);
+				cliente = new ClienteBO().loginCliente(cliente, conn);
 				HttpSession session = request.getSession();
 				session.setAttribute("cliente", cliente);
 				request.getRequestDispatcher("reserva.jsp").forward(request, response);
@@ -127,10 +127,7 @@ public class ServletCliente extends HttpServlet {
 				e.printStackTrace(new PrintWriter(errors));
 				response.getWriter().print(errors.toString());
 			}
-		}
-		
-		
-		
+		}		
 		doGet(request, response);
 	}
 
