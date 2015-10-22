@@ -14,7 +14,7 @@ public Quarto findQuarto(String nmQuarto, Connection conn) throws Exception{
 		String sql = "SELECT B.NR_QUARTO, B.NR_ANDAR, A.DS_TIPO_QUARTO, D.VL_PRECO_QUARTO FROM T_AM_AFC_QUARTO B" 
 				 + " INNER JOIN T_AM_AFC_TIPO_QUARTO A ON (A.CD_TIPO_QUARTO = B.CD_TIPO_QUARTO)"
 				 + " INNER JOIN T_AM_AFC_HIST_VALOR D ON (A.CD_TIPO_QUARTO = D.CD_TIPO_QUARTO)"
-				 + " WHERE A.DS_TIPO_QUARTO LIKE 'LUXO' AND ROWNUM < 2 AND DS_STATUS LIKE 'LIVRE'";
+				 + " WHERE A.DS_TIPO_QUARTO LIKE ? AND ROWNUM < 2 AND DS_STATUS LIKE 'LIVRE'";
 		
 		PreparedStatement estrutura = conn.prepareStatement(sql);
 		estrutura.setString(1, nmQuarto);
@@ -22,7 +22,7 @@ public Quarto findQuarto(String nmQuarto, Connection conn) throws Exception{
 		while (resultado.next()) {
 			Quarto quarto = new Quarto();
 			TipoQuarto tipoQuarto = new TipoQuarto();
-			quarto.setCdQuarto(resultado.getInt("NR_QUARTO"));
+			quarto.setNrQuarto(resultado.getInt("NR_QUARTO"));
 			quarto.setNrAndar(resultado.getInt("NR_ANDAR"));
 			tipoQuarto.setDsTipoQuarto(resultado.getString("DS_TIPO_QUARTO"));
 			tipoQuarto.setVlTipoQuarto(resultado.getDouble("VL_PRECO_QUARTO"));

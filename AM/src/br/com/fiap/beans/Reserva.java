@@ -134,14 +134,14 @@ public class Reserva {
 		this.dsObservacao = dsObservacao;
 	}
 	
-	public double calcularValorReserva(){
+	public void calcularValorReserva(){
 		
 		// Subtraimos os timestamps e realizamos o calculo para converter o resultado para dias
 		int qtdDias = (int) (this.dtSaida.getTime() - this.dtEntrada.getTime()) / ((1000*60*60*24));	
 		
 		// Dias multiplicado pelo valor do quarto resulta no valor da reserva
-		double vlrReserva = (qtdDias*200);
+		double vlrReserva = (qtdDias*this.tipoQuarto.getTipoQuarto().getVlTipoQuarto());
 		// Atribui o valor da reserva
-		return vlrReserva;		
+		this.vlrReserva = vlrReserva;		
 	}		
 }

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import br.com.fiap.BO.ClienteBO;
 import br.com.fiap.BO.QuartoBO;
+import br.com.fiap.BO.ReservaBO;
 import br.com.fiap.beans.Cliente;
 import br.com.fiap.beans.Quarto;
 import br.com.fiap.beans.Reserva;
@@ -70,7 +71,7 @@ public class ServletReserva extends HttpServlet {
 				// Precisamos alinhar qual forma usaremos para pesquisar o quarto (nome, codigo, tipo)
 				Quarto quarto = new Quarto();
 				quarto = new QuartoBO().pesquisarQuarto(request.getParameter("txtNmQuarto").toUpperCase(), conn); 
-				
+				System.out.println(quarto.getNrQuarto());
 				
 				// Trabalhando com as datas da reserva
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -89,9 +90,10 @@ public class ServletReserva extends HttpServlet {
 				reserva.setQtCrianca(Integer.parseInt(request.getParameter("nrQtdCrianca")));
 				reserva.setQtQuarto(Integer.parseInt(request.getParameter("nrQtdQuarto")));
 				reserva.setStatusReserva(true);
-
-//				new ReservaBO().inserirReserva(reserva);
-//				conn.commit();
+				reserva.calcularValorReserva();
+				
+				new ReservaBO().inserirReserva(reserva, conn);
+				conn.commit();
 //				conn.setAutoCommit(true);
 				
 				HttpSession session = request.getSession();
