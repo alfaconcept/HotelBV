@@ -14,7 +14,7 @@ public class PagamentoDAO {
 	
 	DateFormat df = new SimpleDateFormat("yyyy-MM-aa");
 
-	public int insertPagamentoCartao(Reserva reserva, Connection conn, Pagamento pagamento) throws Exception{
+	public int insertPagamentoCartao(Pagamento pagamento, Connection conn) throws Exception{
 		
 		String sql = "INSERT INTO T_AM_AFC_PAGAMENTO(CD_HOSPEDAGEM, CD_TIPO_FORMAPAG, DT_PAGAMENTO, VL_PAGAMENTO) "
 				+ "VALUES(?,?,?,?)";
