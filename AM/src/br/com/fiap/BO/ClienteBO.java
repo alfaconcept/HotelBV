@@ -53,14 +53,14 @@ public class ClienteBO {
 		// new ClienteDAO().insertCliente(cliente);
 	}
 	
-	public Cliente pesquisarCliente(int nrIdentificador, Connection conn) throws Exception{
-		if (nrIdentificador == 0) {
-			throw new Excecoes("Por favor, informe o CPF do cliente para realizar a busca");
-		}
-		
-		return new ClienteDAO().findCliente(nrIdentificador, conn);
-		
-	}
+//	public Cliente pesquisarCliente(int nrIdentificador, Connection conn) throws Exception{
+//		if (nrIdentificador == 0) {
+//			throw new Excecoes("Por favor, informe o CPF do cliente para realizar a busca");
+//		}
+//		
+//		return new ClienteDAO().findCliente(nrIdentificador, conn);
+//		
+//	}
 	
 	public List<Cliente> listarClientes() throws Exception{
 		// return new clienteDAO().selectAllCliente();
