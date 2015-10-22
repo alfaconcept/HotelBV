@@ -90,10 +90,13 @@ public class ServletReserva extends HttpServlet {
 				reserva.setStatusReserva(true);
 
 				new ReservaBO().inserirReserva(reserva);
+				conn.commit();
+				conn.setAutoCommit(true);
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("reserva", reserva);
 				request.getRequestDispatcher("reserva.jsp").forward(request, response);
+				
 			} catch (Exception e) {
 				try {
 					conn.rollback();
