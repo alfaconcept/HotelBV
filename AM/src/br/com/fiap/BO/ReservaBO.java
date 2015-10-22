@@ -9,7 +9,7 @@ import br.com.fiap.excecoes.Excecoes;
 public class ReservaBO {
 	
 	
-	public void inserirReserva(Reserva reserva, Connection conn) throws Exception{
+	public void inserirReserva(Reserva reserva) throws Exception{
 		
 		if (reserva.getCliente() == null) {
 			throw new Excecoes("A reserva precisa de um cliente");
@@ -57,7 +57,7 @@ public class ReservaBO {
 			reserva.setVlrReserva(reserva.calcularValorReserva());
 		}
 		
-		new ReservaDAO().insertReserva(reserva, conn);
+//		new ReservaDAO().insertReserva(reserva, conn);
 		
 		
 	}
