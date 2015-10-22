@@ -114,8 +114,9 @@ public class ServletCliente extends HttpServlet {
 			// TODO
 		} else if (request.getParameter("action").equals("logar")){
 			try {
-				Connection conn = ConnectionFactory.controlarInstancia().getConnection();
+//				Connection conn = ConnectionFactory.controlarInstancia().getConnection();
 				Cliente cliente = new Cliente();
+				cliente.setNmPessoa("Mauricio");
 				cliente.setDsEmail(request.getParameter("txtEmail"));
 				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha"));
 //				cliente = new ClienteBO().loginCliente(cliente, conn);
@@ -127,10 +128,7 @@ public class ServletCliente extends HttpServlet {
 				e.printStackTrace(new PrintWriter(errors));
 				response.getWriter().print(errors.toString());
 			}
-		}
-		
-		
-		
+		}		
 		doGet(request, response);
 	}
 
