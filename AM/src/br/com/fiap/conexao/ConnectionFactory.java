@@ -29,7 +29,7 @@ public final class ConnectionFactory {
 		String senha = dados.readLine();		
 		*/
 		
-		//Class.forName("oracle.jdbc.driver.OracleDriver");
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 		//return DriverManager.getConnection("jdbc:oracle:thin:/:@192.168.60.15:1521:ORCL");
 		return DriverManager.getConnection("jdbc:oracle:thin:/:@oracle.fiap.com:1521:ORCL","OPS$RM74737","090787");
 		//return DriverManager.getConnection(url, usuario, senha);
