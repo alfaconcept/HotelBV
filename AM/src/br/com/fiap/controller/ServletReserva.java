@@ -3,17 +3,19 @@ package br.com.fiap.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.sql.Connection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import br.com.fiap.BO.QuartoBO;
 import br.com.fiap.beans.Cliente;
 import br.com.fiap.beans.Quarto;
-import br.com.fiap.conexao.ConnectionFactory;
+import br.com.fiap.beans.Reserva;
 
 /**
  * Servlet implementation class ServletReserva
@@ -47,7 +49,7 @@ public class ServletReserva extends HttpServlet {
 		
 		if (request.getParameter("action").equals("reservar")) {
 			try {				
-				Connection conn = ConnectionFactory.controlarInstancia().getConnection();	
+//				Connection conn = ConnectionFactory.controlarInstancia().getConnection();	
 				
 				// Obtendo os dados do cliente que esta fazendo a reserva
 				Cliente cliente = new Cliente();
@@ -60,31 +62,30 @@ public class ServletReserva extends HttpServlet {
 				// Obtendo o quarto a ser reservado
 				// Precisamos alinhar qual forma usaremos para pesquisar o quarto (nome, codigo, tipo)
 				Quarto quarto = new Quarto();
-				quarto = new QuartoBO().pesquisarQuarto(request.getParameter("txtNmQuarto"), conn); 
+//				quarto = new QuartoBO().pesquisarQuarto(request.getParameter("txtNmQuarto"), conn); 
 				
 				// Trabalhando com as datas da reserva
-//				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//				Date dtSolicitacao = new Date();			
-//				Date dtEntrada = df.parse(request.getParameter("dtEntrada"));
-//				Date dtSaida = df.parse(request.getParameter("dtSaida"));				
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+				Date dtSolicitacao = new Date();
+				Date dtEntrada = df.parse(request.getParameter("dtEntrada"));
+				Date dtSaida = df.parse(request.getParameter("dtSaida"));				
 //				
 //				// Instanciando e preenchendo o obejto Reserva
-//				Reserva reserva = new Reserva();
-//				reserva.setDtSolicitacao(dtSolicitacao);
-////				reserva.setCliente(cliente);
-////				reserva.setTipoQuarto(quarto);
-//				reserva.setDtEntrada(dtEntrada);
-//				reserva.setDtSaida(dtSaida);
-//				reserva.setQtAdulto(Integer.parseInt(request.getParameter("nrQtdAdulto")));
-//				reserva.setQtCrianca(Integer.parseInt(request.getParameter("nrQtdCrianca")));
-//				reserva.setQtQuarto(Integer.parseInt(request.getParameter("nrQtdQuarto")));
-//				reserva.setStatusReserva(true);
-//				
+				Reserva reserva = new Reserva();
+				reserva.setDtSolicitacao(dtSolicitacao);
+				reserva.setCliente(cliente);
+				reserva.setTipoQuarto(quarto);
+				reserva.setDtEntrada(dtEntrada);
+				reserva.setDtSaida(dtSaida);
+				reserva.setQtAdulto(Integer.parseInt(request.getParameter("nrQtdAdulto")));
+				reserva.setQtCrianca(Integer.parseInt(request.getParameter("nrQtdCrianca")));
+				reserva.setQtQuarto(Integer.parseInt(request.getParameter("nrQtdQuarto")));
+				reserva.setStatusReserva(true);
 
 //				new ReservaBO().inserirReserva(reserva, conn);
 				
-//				HttpSession session = request.getSession();
-//				session.setAttribute("cliente", cliente);
+				HttpSession session = request.getSession();
+				session.setAttribute("reserva", reserva);
 			} catch (Exception e) {
 				StringWriter errors = new StringWriter();
 				e.printStackTrace(new PrintWriter(errors));
