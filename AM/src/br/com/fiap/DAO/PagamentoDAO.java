@@ -51,15 +51,29 @@ public int insertPagamentoCheque(Reserva reserva, Connection conn, Pagamento pag
 		
 		sql = "INSERT INTO T_AM_AFC_PAG_CHEQUE(CD_PGTO_CHEQUE,CD_HOSPEDAGEM,NR_BANCO)"
 				+ "VALUES(SQ_AM_AFC_Pagto_Cheque.nextval,?,?)";
+		
 		PreparedStatement estrutura2 = conn.prepareStatement(sql);
 		estrutura2.setInt(1, pagamento.getHospedagem().getCdHospedagem());
-		estrutura2.setInt(2,1);
+		estrutura2.setInt(2,33);
+		
+		estrutura2.execute();
+
+		sql = "INSERT INTO T_AM_AFC_REL_CHEQUE(CD_PGTO_CHEQUE,CD_HOSPEDAGEM,NR_CHEQUE,VL_PARCELA)"
+				+ "VALUES(SQ_AM_AFC_Pagto_Cheque.currval,?,?)";
+		
+		PreparedStatement estrutura3 = conn.prepareStatement(sql);
+		estrutura3.setInt(1, pagamento.getHospedagem().getCdHospedagem());
+		estrutura3.setInt(2,1234);
+		estrutura3.setDouble(3,pagamento.getHospedagem().getVlTotalHospedagem());
+		
+		estrutura3.execute();
+		
 		
 		return 1;
 	}
 	
 	public List<Pagamento> listPagamento(int cdReserva, Connection conexao) throws Exception{
-		List<Pagamento> pagamento = new ArrayList<Pagamento>;
+		List<Pagamento> pagamento = new ArrayList<Pagamento>();
 		
 		
 		return pagamento;
