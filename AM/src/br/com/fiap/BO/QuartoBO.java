@@ -28,15 +28,12 @@ public class QuartoBO {
 	
 	 //new QuartoDAO().insertQuarto(quarto);
 	
-	public Quarto pesquisarQuarto(String txtNmQuarto, Connection conn) throws Exception{
-		if(txtNmQuarto.equals("")){
+	public Quarto pesquisarQuarto(String nmQuarto, Connection conn) throws Exception{
+		if(nmQuarto.equals("")){
 			throw new Excecoes("Por favor, informe o nome do tipo de quarto para realizar a busca");
 		}
 		
-//		return new QuartoDAO().findQuarto(txtNmQuarto, conn);
-		
-		return new Quarto();
-
+		return new QuartoDAO().findQuarto(nmQuarto, conn);
 	}
 	
 	
