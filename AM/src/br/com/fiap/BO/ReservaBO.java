@@ -2,17 +2,18 @@ package br.com.fiap.BO;
 
 import java.sql.Connection;
 
+import br.com.fiap.DAO.ReservaDAO;
 import br.com.fiap.beans.Reserva;
 import br.com.fiap.excecoes.Excecoes;
 
 public class ReservaBO {
 	
 	
-	public void inserirReserva(Reserva reserva, Connection conn) throws Exception{
+	public void inserirReserva(Reserva reserva) throws Exception{
 		
-//		if (reserva.getCliente() == null) {
-//			throw new Excecoes("A reserva precisa de um cliente");
-//		}
+		if (reserva.getCliente() == null) {
+			throw new Excecoes("A reserva precisa de um cliente");
+		}
 		
 		if (reserva.getDtSolicitacao() == null) {
 			throw new Excecoes("A reserva precisa de uma data de solicitação");
@@ -46,9 +47,9 @@ public class ReservaBO {
 			throw new Excecoes("Reserva deve ter pelo menos um quarto");
 		}
 		
-//		if (reserva.getTipoQuarto() == null) {
-//			throw new Excecoes("Informar o tipo de quarto");
-//		}
+		if (reserva.getTipoQuarto() == null) {
+			throw new Excecoes("Informar o tipo de quarto");
+		}
 		
 		if (reserva.calcularValorReserva() == 0.0){
 			throw new Excecoes("Erro no cálculo do valor da reserva");

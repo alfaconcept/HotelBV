@@ -1,5 +1,6 @@
 package br.com.fiap.BO;
 
+import java.sql.Connection;
 import java.util.List;
 
 import br.com.fiap.beans.Quarto;
@@ -26,12 +27,12 @@ public class QuartoBO {
 	
 	 //new QuartoDAO().insertQuarto(quarto);
 	
-	public Quarto pesquisarQuarto(int cdQuarto) throws Exception{
-		if(cdQuarto == 0){
-			throw new Excecoes("Por favor, informe o código do quarto para realizar a busca");
+	public Quarto pesquisarQuarto(String txtNmQuarto, Connection conn) throws Exception{
+		if(txtNmQuarto.equals("")){
+			throw new Excecoes("Por favor, informe o nome do tipo de quarto para realizar a busca");
 		}
 		
-		//return new QuartoDAO().findQuarto(cdQuarto);
+		//return new QuartoDAO().findQuarto(cdQuarto, conn);
 		
 		return null; //REMOVER ESTA LINHA APÓS CRIAR OS MÉTODOS DAO
 	}
