@@ -23,7 +23,7 @@ public class TestePagamentoDAO {
 		Date data = new Date(System.currentTimeMillis());
 		
 		hospedagem.setCdHospedagem(Integer.parseInt(JOptionPane.showInputDialog("Informe a Hospedagem")));
-		hospedagem.setVlTotalHospedagem(Double.parseDouble("Informe o valor total da Hospedagem"));
+		hospedagem.setVlTotalHospedagem(Double.parseDouble(JOptionPane.showInputDialog("Informe o Valor total da Hospedagem")));
 		pagamento.setHospedagem(hospedagem);
 		tipoPagamento.setCdTipoPagamento(Integer.parseInt(JOptionPane.showInputDialog("Informe o Tipo de Pagamento")));
 		pagamento.setTipoPagamento(tipoPagamento);
