@@ -71,7 +71,6 @@ public class ServletReserva extends HttpServlet {
 				// Precisamos alinhar qual forma usaremos para pesquisar o quarto (nome, codigo, tipo)
 				Quarto quarto = new Quarto();
 				quarto = new QuartoBO().pesquisarQuarto(request.getParameter("txtNmQuarto").toUpperCase(), conn); 
-				System.out.println(quarto.getNrQuarto());
 				
 				// Trabalhando com as datas da reserva
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
