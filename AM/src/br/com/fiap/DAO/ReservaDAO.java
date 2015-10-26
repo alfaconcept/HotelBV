@@ -34,7 +34,7 @@ public class ReservaDAO {
 		PreparedStatement estrutura2 = conn.prepareStatement(sql);
 		estrutura2.setInt(1, reserva.getTipoQuarto().getNrQuarto());
 		estrutura2.setInt(2, (reserva.getQtAdulto()+reserva.getQtCrianca())); //Soma de Numero Adultos com Numero Crianças
-		estrutura2.setString(3, "teste");
+		estrutura2.setString(3, "Novo teste");
 		
 		estrutura1.execute();
 		estrutura2.execute();

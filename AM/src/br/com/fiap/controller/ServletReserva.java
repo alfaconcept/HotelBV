@@ -96,7 +96,7 @@ public class ServletReserva extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("reserva", reserva);
-				request.getRequestDispatcher("reserva.jsp").forward(request, response);
+				request.getRequestDispatcher("ResultadoReserva.jsp").forward(request, response);
 				
 			} catch (Exception e) {
 				try {
@@ -113,8 +113,9 @@ public class ServletReserva extends HttpServlet {
 				try {
 					conn.close();
 				} catch (Exception e2) {
-					// TODO: handle exception
-					
+					StringWriter errors = new StringWriter();
+					e2.printStackTrace(new PrintWriter(errors));
+					response.getWriter().print(errors.toString());					
 				}
 			}
 		}

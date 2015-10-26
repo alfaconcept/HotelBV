@@ -8,8 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Testando Quarto: ${reserva.tipoQuarto.nrQuarto }
-<br><br><br>
 Nome do Cliente: ${reserva.cliente.nmPessoa}<br>
 Numero do quarto: ${reserva.tipoQuarto.nrQuarto }<br>
 <!-- A linha abaixo formata a data para exibição -->
