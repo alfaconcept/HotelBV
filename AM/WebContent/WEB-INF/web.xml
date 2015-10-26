@@ -25,6 +25,14 @@
     <servlet-name>ServletReserva</servlet-name>
     <url-pattern>/ServletReserva</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>ServletPagamento</servlet-name>
+  	<servlet-class>br.com.fiap.controller.ServletPagamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServletPagamento</servlet-name>
+  	<url-pattern>/ServletPagamento</url-pattern>
+  </servlet-mapping>
   <error-page>
     <exception-type>java.lang.Exception</exception-type>
     <location>/erro.jsp</location>

@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Formulário de pagamento</title>
+<title>Insert title here</title>
 </head>
 <body>
-<form action="ServletPagamento?action=checkOut">
-	<label>Código de hospedagem: <input type="text" name="nrHospedagem"></label>	
-</form>
+Código de Hospedagem: ${hospedagem.codHospedagem }<br>
 </body>
 </html>

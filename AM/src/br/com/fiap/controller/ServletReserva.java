@@ -99,13 +99,13 @@ public class ServletReserva extends HttpServlet {
 				request.getRequestDispatcher("ResultadoReserva.jsp").forward(request, response);
 				
 			} catch (Exception e) {
-				try {
-					conn.rollback();
-				} catch (SQLException e1) {
-					StringWriter errors = new StringWriter();
-					e.printStackTrace(new PrintWriter(errors));
-					response.getWriter().print(errors.toString());
-				}
+//				try {
+//					conn.rollback();
+//				} catch (SQLException e1) {
+//					StringWriter errors = new StringWriter();
+//					e.printStackTrace(new PrintWriter(errors));
+//					response.getWriter().print(errors.toString());
+//				}
 				StringWriter errors = new StringWriter();
 				e.printStackTrace(new PrintWriter(errors));
 				response.getWriter().print(errors.toString());

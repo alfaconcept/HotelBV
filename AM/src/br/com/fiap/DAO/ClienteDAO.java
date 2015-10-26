@@ -30,6 +30,7 @@ public class ClienteDAO {
 			c.setCdPessoa(resultado.getInt("CD_CLIENTE"));
 			c.setNmPessoa(resultado.getString("NM_PESSOA"));
 			resultado.close();
+			estrutura.close();
 			return c;
 		}
 		
