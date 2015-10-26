@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Formulário de pagamento</title>
+<title>Insert title here</title>
 </head>
 <body>
-<form action="ServletPagamento?action=checkOut" method="POST">
-	<label>Código de hospedagem: <input type="text" name="nrHospedagem"></label>
-	<input type="submit" value="Procurar">	
+<form action="ServletFuncionario?action=logar" method="POST">
+Login: <input type="text" name="txtLogin"><br>
+Senha: <input type="password" name="pwdSenha" ><br>
+<input type="submit" value="testar login">
 </form>
 </body>
 </html>
