@@ -61,7 +61,6 @@ public class ServletReserva extends HttpServlet {
 				
 				// Obtendo os dados do cliente que esta fazendo a reserva
 				Cliente cliente = new Cliente();
-//				cliente.setNmPessoa(request.getParameter("txtNmCliente"));
 				cliente.setDsEmail(request.getParameter("txtEmail")); // Obtem e-mail do formulário
 				cliente.setDsSenhaAcesso(request.getParameter("pwdSenha")); // Senha do do formulário
 				cliente = new ClienteBO().loginCliente(cliente, conn); // Busca os dados so cliente no banco
@@ -103,8 +102,9 @@ public class ServletReserva extends HttpServlet {
 				try {
 					conn.rollback();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					StringWriter errors = new StringWriter();
+					e.printStackTrace(new PrintWriter(errors));
+					response.getWriter().print(errors.toString());
 				}
 				StringWriter errors = new StringWriter();
 				e.printStackTrace(new PrintWriter(errors));

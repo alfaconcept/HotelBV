@@ -19,7 +19,7 @@ Data de Solicitação formatada: ${dtSolicitacaoFormat }<br>
 <fmt:formatDate value="${reserva.dtEntrada }" var="dtEntradaFormat" type="date" pattern="dd/MM/yyyy"/>	
 Data de Entrada: ${dtEntradaFormat }<br>
 <!-- A linha abaixo formata a data para exibição -->
-<fmt:formatDate value="${reserva.dtEntrada }" var="dtSaidaFormat" type="date" pattern="dd/MM/yyyy"/>	
+<fmt:formatDate value="${reserva.dtSaida }" var="dtSaidaFormat" type="date" pattern="dd/MM/yyyy"/>	
 Data de Saída: ${dtSaidaFormat }<br>
 Quantidade de Adultos: ${reserva.qtAdulto }<br>
 Quantidade de Crianças: ${reserva.qtCrianca }<br>

@@ -135,7 +135,6 @@ public class Reserva {
 	}
 	
 	public void calcularValorReserva(){
-		System.out.println(this.getTipoQuarto().getTipoQuarto().getVlTipoQuarto());
 		// Subtraimos os timestamps e realizamos o calculo para converter o resultado para dias
 		int qtdDias = (int) (this.dtSaida.getTime() - this.dtEntrada.getTime()) / ((1000*60*60*24));	
 		

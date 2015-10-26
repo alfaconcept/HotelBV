@@ -15,7 +15,7 @@ public class ReservaDAO {
 	public void insertReserva(Reserva reserva, Connection conn) throws Exception {
 		
 		String sql = "INSERT INTO T_AM_AFC_RESERVA(CD_RESERVA,CD_CLIENTE,CD_FUNCIONARIO,DT_SOLICITACAO,DT_INICIO_RESERVA,DT_FINAL_RESERVA,QT_ADULTO,QT_CRIANCA,ST_RESERVA)" +
-					"VALUES(SQ_AM_AFC_RESERVA.NEXTVAL,?,?,TO_DATE(?, 'dd/mm/yy'),TO_DATE(?, 'dd/mm/yyy'),TO_DATE(?, 'dd/mm/yyy'),?,?,?)";
+					"VALUES(SQ_AM_AFC_RESERVA.NEXTVAL,?,?,TO_DATE(?, 'dd/mm/yy'),TO_DATE(?, 'dd/mm/yy'),TO_DATE(?, 'dd/mm/yy'),?,?,?)";
 		
 	 
 		PreparedStatement estrutura1 = conn.prepareStatement(sql);
@@ -32,7 +32,6 @@ public class ReservaDAO {
 				"VALUES(SQ_AM_AFC_RESERVA.CURRVAL,?,?,?)";
 		
 		PreparedStatement estrutura2 = conn.prepareStatement(sql);
-		System.out.println(reserva.getTipoQuarto().getNrQuarto());
 		estrutura2.setInt(1, reserva.getTipoQuarto().getNrQuarto());
 		estrutura2.setInt(2, (reserva.getQtAdulto()+reserva.getQtCrianca())); //Soma de Numero Adultos com Numero Crianças
 		estrutura2.setString(3, "teste");
