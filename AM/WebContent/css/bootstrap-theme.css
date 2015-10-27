@@ -584,4 +584,13 @@ fieldset[disabled] .btn-danger.active {
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
 }
+
+.footer-panel {
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+
+Read more: http://www.linhadecodigo.com.br/artigo/3611/bordas-arredondadas-css3-estilizando-bordas.aspx#ixzz3piNdvLRL
 /*# sourceMappingURL=bootstrap-theme.css.map */

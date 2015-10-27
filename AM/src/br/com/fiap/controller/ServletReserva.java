@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,9 +17,11 @@ import javax.servlet.http.HttpSession;
 import br.com.fiap.BO.ClienteBO;
 import br.com.fiap.BO.QuartoBO;
 import br.com.fiap.BO.ReservaBO;
+import br.com.fiap.BO.TipoQuartoBO;
 import br.com.fiap.beans.Cliente;
 import br.com.fiap.beans.Quarto;
 import br.com.fiap.beans.Reserva;
+import br.com.fiap.beans.TipoQuarto;
 import br.com.fiap.conexao.ConnectionFactory;
 
 /**
@@ -68,8 +69,15 @@ public class ServletReserva extends HttpServlet {
 				
 				// Obtendo o quarto a ser reservado
 				// Precisamos alinhar qual forma usaremos para pesquisar o quarto (nome, codigo, tipo)
+				TipoQuarto tipoQuarto = new TipoQuarto();
+				tipoQuarto.setDsTipoQuarto(request.getParameter("rdQuarto"));
+				tipoQuarto = new TipoQuartoBO().pesquisarTipoQuarto(tipoQuarto, conn);	
+				
+				
+				
 				Quarto quarto = new Quarto();
-				quarto = new QuartoBO().pesquisarQuarto(request.getParameter("txtNmQuarto").toUpperCase(), conn); 
+				quarto.setTipoQuarto(tipoQuarto);
+				quarto = new QuartoBO().pesquisarQuarto(quarto, conn); 
 				
 				// Trabalhando com as datas da reserva
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");

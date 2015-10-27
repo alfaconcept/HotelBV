@@ -10,6 +10,7 @@
 <body>
 Nome do Cliente: ${reserva.cliente.nmPessoa}<br>
 Numero do quarto: ${reserva.tipoQuarto.nrQuarto }<br>
+Andar: ${reserva.tipoQuarto.nrAndar }<br>
 <!-- A linha abaixo formata a data para exibição -->
 <fmt:formatDate value="${reserva.dtEntrada }" var="dtSolicitacaoFormat" type="date" pattern="dd/MM/yyyy"/>
 Data de Solicitação formatada: ${dtSolicitacaoFormat }<br>

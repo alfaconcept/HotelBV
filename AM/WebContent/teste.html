@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hotel Boa Viagem</title>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- CSS -->
+<!-- <link href="css/style.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+    <!-- Navegacao -->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+        <div class="container">
+            <!-- display responsivo -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Navegacao</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="img/logo_branco.png"></a>
+            </div>
+            <!-- menu -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Sobre o hotel</a>
+                    </li>
+                    <li>
+                        <a href="#">Reserve Ja</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-phone"></span>Boa Viagem Mobile</a>
+                    </li>
+                    <li>
+                        <a href="#">Acesso Funcionario</a>
+                    </li>
+                </ul>
+                
+            </div>
+           
+        </div>
+        
+    </nav>
+
+    <!-- Inicio do container -->
+    <div class="container">
+            <br><br><br>
+            <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+
+                <br><br>
+                <div class="col-md-6" style="float:left">
+
+                <div class="modal-dialog">
+                <div class="modal-content">
+
+                <img src="img/topo_reservar.png"><br>
+                <form class="form-horizontal">
+
+                        <div class="alert alert-success alert-dismissable">
+                             
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        ×
+                        </button>
+                        <h4>
+                        Atenção!
+                        </h4>Nosso hotel suporta até <strong>04 pessoas</strong> por quarto. <a href="#" class="alert-link">Saiba mais.</a>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Nome:</label>  
+                          <div class="col-md-6">
+                          <input id="textinput" name="textinput" type="text" placeholder="Insira seu nome completo" class="form-control input-md" required="">
+                            
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">E-mail:</label>  
+                          <div class="col-md-6">
+                          <input id="textinput" name="textinput" type="text" placeholder="Insira seu e-mail" class="form-control input-md" required="">
+                            
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Data de Entrada</label>  
+                          <div class="col-md-4">
+                          <input data-format="dd/MM/yyyy" type="text"></input>
+                            <span class="add-on">
+                              <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                              </i>
+                            </span>
+                            
+                          </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="textinput">Data de Saída</label>  
+                          <div class="col-md-4">
+                          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
+                            
+                          </div>
+                        </div>
+
+                        <!-- Multiple Radios (inline) -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="radios">Qtde. Adultos</label>
+                          <div class="col-md-4"> 
+                            <label class="radio-inline" for="radios-0">
+                              <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                              1
+                            </label> 
+                            <label class="radio-inline" for="radios-1">
+                              <input type="radio" name="radios" id="radios-1" value="2">
+                              2
+                            </label> 
+                            <label class="radio-inline" for="radios-2">
+                              <input type="radio" name="radios" id="radios-2" value="3">
+                              3
+                            </label> 
+                            <label class="radio-inline" for="radios-3">
+                              <input type="radio" name="radios" id="radios-3" value="4">
+                              4
+                            </label>
+                          </div>
+                        </div>
+
+                        <!-- Multiple Radios (inline) -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="radios">Qtde. Crianças</label>
+                          <div class="col-md-4"> 
+                            <label class="radio-inline" for="radios-0">
+                              <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                              1
+                            </label> 
+                            <label class="radio-inline" for="radios-1">
+                              <input type="radio" name="radios" id="radios-1" value="2">
+                              2
+                            </label> 
+                            <label class="radio-inline" for="radios-2">
+                              <input type="radio" name="radios" id="radios-2" value="3">
+                              3
+                            </label> 
+                            <label class="radio-inline" for="radios-3">
+                              <input type="radio" name="radios" id="radios-3" value="4">
+                              4
+                            </label>
+                          </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="selectbasic">Tipo de Quarto</label>
+                          <div class="col-md-4">
+                            <select id="selectbasic" name="selectbasic" class="form-control">
+                              <option value="Standart">Standart</option>
+                              <option value="Master">Master</option>
+                              <option value="Luxo">Luxo</option>
+                              <option value="Master Luxo">Master Luxo</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <!-- Button (Double) -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="button1id"></label>
+                          <div class="col-md-8">
+                            <button id="button1id" name="button1id" class="btn btn-success">RESERVAR</button>
+                            <button id="button2id" name="button2id" class="btn btn-danger">Cancelar</button>
+                          </div>
+                        </div>
+
+                        </fieldset>
+                        </form>
+                    </div>
+                    </div>
+                </div>  
+                </div>
+                <div class="col-md-6" style="float:right">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <p>
+                        Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+                    </p>
+                    <div class="carousel slide" id="carousel-119530">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-slide-to="0" data-target="#carousel-119530">
+                            </li>
+                            <li data-slide-to="1" data-target="#carousel-119530">
+                            </li>
+                            <li data-slide-to="2" data-target="#carousel-119530">
+                            </li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
+                                <div class="carousel-caption">
+                                    <h4>
+                                        First Thumbnail label
+                                    </h4>
+                                    <p>
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+                                <div class="carousel-caption">
+                                    <h4>
+                                        Second Thumbnail label
+                                    </h4>
+                                    <p>
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+                                <div class="carousel-caption">
+                                    <h4>
+                                        Third Thumbnail label
+                                    </h4>
+                                    <p>
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                </div>
+                            </div>
+                        </div> <a class="left carousel-control" href="#carousel-119530" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-119530" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+    <!-- Fim do container -->
+       
+    </div>
+
+    <div id="modalReserva" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+     
+    <!-- Modal para logar ou cadastrar -->
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row"><br>
+            <center><img src="img/hotel_preto.png"></center>
+                <div class="col-md-6">
+                    <h3 class="text-center"><br>
+                        Ja tenho cadastro<br>
+                    </h3>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                             
+                            <label for="inputEmail3" class="col-sm-2 control-label">
+                                Email
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             
+                            <label for="inputPassword3" class="col-sm-2 control-label">
+                                Senha
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                     
+                                    <label>
+                                        <input type="checkbox" /> Nao me deixe esquecer
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                 
+                                <button type="submit" class="btn btn-default">
+                                    Acessar sua Conta
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="alert alert-dismissable alert-success">
+                         
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                            ×
+                        </button>
+                        <h4>
+                            Hospede!
+                        </h4> <strong>Atencao!</strong> Disponível somente para pessoas físicas. <a href="#" class="alert-link">Leia o Regulamento</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="text-center"><br>
+                        Ainda nao tenho cadastro<br>
+                    </h3>
+                    <dl>
+                        <dt>
+                            Nao perca essa oportunidade
+                        </dt>
+                        <dd>
+                            Otimos precos com varias opcoes de pagamento.
+                        </dd>
+                        <dt>
+                            Seguranca
+                        </dt>
+                        <dd>
+                            Nosso sistema de reserva tem a qualidade Alfa Concept.
+                        </dd>
+                        <dd>
+                            Suas informacoes estarao seguras conosco.
+                        </dd>
+                        <dt>
+                            Qualidade
+                        </dt>
+                        <dd>
+                            Garantimos qualidade, sendo o melhor hospedeiro da regiao.
+                        </dd><br>
+                        
+                        <dd>
+                            Clique no botao abaixo, e faca seu cadastro!
+                        </dd>
+                    </dl> 
+                    <button type="button" class="btn btn-lg btn-success">
+                        <center>Ok! Quero me cadastrar</center>
+                    </button><br><br>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+                             
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Sair
+                            </button> 
+                            
+                        </div>
+    </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+    
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,7 +1,9 @@
 package br.com.fiap.BO;
 
+import java.sql.Connection;
 import java.util.List;
 
+import br.com.fiap.DAO.TipoQuartoDAO;
 import br.com.fiap.beans.TipoQuarto;
 import br.com.fiap.excecoes.Excecoes;
 
@@ -19,14 +21,13 @@ public class TipoQuartoBO {
 		// return TipoQuartoDAO().insertTipoQuarto(tipoQuarto);
 	}
 	
-	public TipoQuarto pesquisarTipoQuarto(int codTipoQuarto) throws Exception{
-		if (codTipoQuarto == 0) {
-			throw new Excecoes("Por favor, informe o código do tipo de quarto para realizar a busca");
+	public TipoQuarto pesquisarTipoQuarto(TipoQuarto tipoQuarto, Connection conn) throws Exception{
+		if (tipoQuarto.getDsTipoQuarto().equals("")) {
+			throw new Excecoes("Por favor, informe o tipo de quarto para realizar a busca");
 		}
 		
-		// return new TipoQuartoDAO().findTipoQuarto(codTipoQuarto);
-		
-		return null; // REMOVER ESTA LINHA APÓS CRIAR OS MÉTODOS DAO
+		 return new TipoQuartoDAO().findTipoQuarto(tipoQuarto, conn);
+	
 	}
 	
 	public List<TipoQuarto> listarTipoQuarto() throws Exception{

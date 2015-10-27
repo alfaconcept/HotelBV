@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.fiap.DAO.QuartoDAO;
 import br.com.fiap.beans.Quarto;
+import br.com.fiap.beans.TipoQuarto;
 import br.com.fiap.excecoes.Excecoes;
 
 public class QuartoBO {
@@ -28,12 +29,12 @@ public class QuartoBO {
 	
 	 //new QuartoDAO().insertQuarto(quarto);
 	
-	public Quarto pesquisarQuarto(String nmQuarto, Connection conn) throws Exception{
-		if(nmQuarto.equals("")){
-			throw new Excecoes("Por favor, informe o nome do tipo de quarto para realizar a busca");
+	public Quarto pesquisarQuarto(Quarto quarto, Connection conn) throws Exception{
+		if(quarto.getTipoQuarto().getCodTipoQuarto() == 0){
+			throw new Excecoes("Por favor, informe o código do tipo de quarto para realizar a busca");
 		}
 		
-		return new QuartoDAO().findQuarto(nmQuarto, conn);
+		return new QuartoDAO().findQuarto(quarto, conn);
 	}
 	
 	
