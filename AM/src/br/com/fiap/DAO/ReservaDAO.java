@@ -2,6 +2,7 @@ package br.com.fiap.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -12,7 +13,9 @@ public class ReservaDAO {
 	DateFormat df = new SimpleDateFormat("dd/MM/yy");
 	
 	
-	public void insertReserva(Reserva reserva, Connection conn) throws Exception {
+	public int insertReserva(Reserva reserva, Connection conn) throws Exception {
+		
+		int cdReserva;
 		
 		String sql = "INSERT INTO T_AM_AFC_RESERVA(CD_RESERVA,CD_CLIENTE,CD_FUNCIONARIO,DT_SOLICITACAO,DT_INICIO_RESERVA,DT_FINAL_RESERVA,QT_ADULTO,QT_CRIANCA,ST_RESERVA)" +
 					"VALUES(SQ_AM_AFC_RESERVA.NEXTVAL,?,?,TO_DATE(?, 'dd/mm/yy'),TO_DATE(?, 'dd/mm/yy'),TO_DATE(?, 'dd/mm/yy'),?,?,?)";
@@ -38,8 +41,48 @@ public class ReservaDAO {
 		
 		estrutura1.execute();
 		estrutura2.execute();
+		
+		sql = "SELECT CD_RESERVA FROM T_AM_AFC_RESERVA WHERE CD_RESERVA IN (SELECT SQ_AM_AFC_Hospedagem.currval)";
+		PreparedStatement estrutura3 = conn.prepareStatement(sql);
+		ResultSet resultado = estrutura3.executeQuery();
+		
+		cdReserva = resultado.getInt("CD_RESERVA");
+		
+		
 		estrutura1.close();
 		estrutura2.close();
+		estrutura3.close();
+		
+		
+		return cdReserva;
+	}
+	
+	public void updateStatusQuarto(Reserva reserva, Connection conn ) throws Exception{
+		
+		String sql = "UPDATE T_AM_AFC_QUARTO SET DS_STATUS = 'LIVRE'"
+				+ "WHERE NR_QUARTO IN ("
+				+ "                SELECT "
+				+ "                   D.NR_QUARTO "
+				+ "                  FROM "
+				+ "                    T_AM_AFC_PAGAMENTO A "
+				+ "                  INNER JOIN "
+				+ "                    T_AM_AFC_HOSPEDAGEM B ON (A.CD_HOSPEDAGEM = B.CD_HOSPEDAGEM) "
+				+ "                  INNER JOIN "
+				+ "                    T_AM_AFC_RESERVA_QUARTO C ON (B.CD_RESERVA = C.CD_RESERVA) "
+				+ "                  INNER JOIN "
+				+ "                    T_AM_AFC_QUARTO D ON (C.NR_QUARTO = D.NR_QUARTO) "
+				+ "                  INNER JOIN "
+				+ "                    T_AM_AFC_TIPO_QUARTO E ON (D.CD_TIPO_QUARTO = E.CD_TIPO_QUARTO) "
+				+ "                  INNER JOIN "
+				+ "                    T_AM_AFC_TIPO_FORMAPAG F ON (A.CD_TIPO_FORMAPAG = F.CD_TIPO_FORMAPAG) "
+				+ "                  WHERE "
+				+ "                    A.CD_RESERVA = ? "
+				+ "                  ) ";
+		
+		PreparedStatement estrutura = conn.prepareStatement(sql);
+		estrutura.setInt(1,reserva.getCdReserva());
+		estrutura.executeQuery();
+		
 	}
 	
 	
