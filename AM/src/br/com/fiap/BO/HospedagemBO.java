@@ -10,8 +10,7 @@ public class HospedagemBO {
 	public Hospedagem consultarHospedagem(Hospedagem hospedagem, Connection conn) throws Exception{
 		if (hospedagem.getCdHospedagem() == 0) {
 			throw new Excecoes("Por favor, informe o código de hospedagem para registrar o Check Out");
-		}
-		
+		}		
 		return new HospedagemDAO().findHospedagem(hospedagem, conn);
 	}
 }

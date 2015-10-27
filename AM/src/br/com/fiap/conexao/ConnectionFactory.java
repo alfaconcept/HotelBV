@@ -1,7 +1,5 @@
 package br.com.fiap.conexao;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -14,8 +12,7 @@ public final class ConnectionFactory {
 			conexao = new ConnectionFactory();
 		}
 		return conexao;
-	}
-	
+	}	
 	
 	//Conexão com o Banco Oracle
 	public Connection getConnection() throws Exception {
@@ -30,7 +27,7 @@ public final class ConnectionFactory {
 		*/
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		return DriverManager.getConnection("jdbc:oracle:thin:/:@192.168.60.15:1521:ORCL");
+		return DriverManager.getConnection("jdbc:oracle:thin:/:@127.0.0.1:1521:ORCL");
 //		return DriverManager.getConnection("jdbc:oracle:thin:/:@oracle.fiap.com.br:1521:ORCL","OPS$RM73897","310595");
 	}
 

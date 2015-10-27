@@ -22,8 +22,7 @@ public class HospedagemDAO {
 			resultado.close();
 			estrutura.close();
 			return hosp;
-		}
-		
+		}		
 		return null;
 	}
 	

@@ -9,7 +9,7 @@ import br.com.fiap.beans.Funcionario;
 public class FuncionarioDAO {
 	public Funcionario findFuncionario(Funcionario funcionario, Connection conn) throws Exception{
 		
-		String sql = "SELECT * FROM T_AM_AFC_FUNCIONARIO WHERE CD_PESSOA = ? AND DS_SENHA = ?";
+		String sql = "SELECT CD_FUNCIONARIO FROM T_AM_AFC_FUNCIONARIO WHERE CD_FUNCIONARIO = ? AND DS_SENHA = ?";
 		
 		PreparedStatement estrutura = conn.prepareStatement(sql);
 		
@@ -20,7 +20,7 @@ public class FuncionarioDAO {
 		
 		while (resultado.next()) {
 			Funcionario func = new Funcionario();
-			func.setDsCargo(resultado.getString("DS_CARGO"));
+			func.setCdPessoa(resultado.getInt("CD_FUNCIONARIO"));
 			resultado.close();
 			estrutura.close();
 			return func;			

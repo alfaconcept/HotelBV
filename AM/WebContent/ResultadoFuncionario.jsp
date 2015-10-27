@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ServletFuncionario?action=logar" method="POST">
-Login: <input type="text" name="nrCodPessoa"><br>
-Senha: <input type="password" name="pwdSenha" ><br>
-<input type="submit" value="testar login">
-</form>
+Descrição de Cargo: ${funcionario.dsCargo }
 </body>
 </html>

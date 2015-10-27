@@ -7,16 +7,15 @@ public class Funcionario extends Pessoa{
 	private String dsCargo;
 	private String dsSenhaAcesso;
 	
-	public Funcionario(int cdPessoa, String nmPessoa, Endereco endereco,
-			int cpf, int rg, Date dtNascimento, Date dtAdmissao,
+	public Funcionario(int cdPessoa, String nmPessoa, Endereco endereco, Telefone telefone, Date dtAdmissao,
 			String dsCargo, String dsSenhaAcesso) {
-		super(cdPessoa, nmPessoa, endereco, cpf, rg, dtNascimento);
+		super(cdPessoa, nmPessoa, endereco, telefone);
 		this.dtAdmissao = dtAdmissao;
 		this.dsCargo = dsCargo;
 		this.dsSenhaAcesso = dsSenhaAcesso;
 	}
-	
-	public Funcionario(){
+
+	public Funcionario() {
 		super();
 	}
 
@@ -43,5 +42,4 @@ public class Funcionario extends Pessoa{
 	public void setDsSenhaAcesso(String dsSenhaAcesso) {
 		this.dsSenhaAcesso = dsSenhaAcesso;
 	}
-	
 }
