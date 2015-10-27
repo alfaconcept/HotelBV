@@ -5,7 +5,6 @@ import java.util.List;
 
 import br.com.fiap.DAO.QuartoDAO;
 import br.com.fiap.beans.Quarto;
-import br.com.fiap.beans.TipoQuarto;
 import br.com.fiap.excecoes.Excecoes;
 
 public class QuartoBO {

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import br.com.fiap.beans.Quarto;
-import br.com.fiap.beans.TipoQuarto;
 
 public class QuartoDAO {
 	

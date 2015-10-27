@@ -1,5 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
-<html class="full" lang="en">
+<html class="full">
 
 
 <head>
@@ -128,7 +132,7 @@
                                                 <label for="nomeHospede">
                                                     Nome:
                                                 </label>
-                                                <input type="email" class="form-control" value="${}"/>
+                                                <input type="text" class="form-control" value="${reserva.cliente.nmPessoa}"/>
                                             </div>
 
                                             <div class="form-group">

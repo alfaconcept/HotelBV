@@ -101,7 +101,7 @@ public class ServletReserva extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("reserva", reserva);
-				response.sendRedirect("ResultadoReserva.jsp");
+				response.sendRedirect("reservar.jsp");
 				
 			} catch (Exception e) {
 //				try {
