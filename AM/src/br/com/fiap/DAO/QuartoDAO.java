@@ -11,12 +11,11 @@ public class QuartoDAO {
 	
 public Quarto findQuarto(Quarto quarto, Connection conn) throws Exception{
 		
-		String sql = "SELECT B.NR_QUARTO, B.NR_ANDAR, FROM T_AM_AFC_QUARTO B" 
-				 + " INNER JOIN T_AM_AFC_TIPO_QUARTO A ON (A.CD_TIPO_QUARTO = B.CD_TIPO_QUARTO)"
-				 + " WHERE A.DS_TIPO_QUARTO LIKE ? AND ROWNUM < 2 AND DS_STATUS LIKE 'LIVRE'";
+		String sql = "SELECT NR_QUARTO, NR_ANDAR FROM T_AM_AFC_QUARTO"
+				 + " WHERE CD_TIPO_QUARTO = ? AND ROWNUM < 2 AND DS_STATUS LIKE 'LIVRE'";
 		
 		PreparedStatement estrutura = conn.prepareStatement(sql);
-		estrutura.setString(1, quarto.getTipoQuarto().getDsTipoQuarto());
+		estrutura.setInt(1, quarto.getTipoQuarto().getCodTipoQuarto());
 		ResultSet resultado = estrutura.executeQuery();
 		while (resultado.next()) {
 			quarto.setNrQuarto(resultado.getInt("NR_QUARTO"));
@@ -24,7 +23,6 @@ public Quarto findQuarto(Quarto quarto, Connection conn) throws Exception{
 			resultado.close();
 			return quarto;
 		}
-		
 		return null;
 	}
 }

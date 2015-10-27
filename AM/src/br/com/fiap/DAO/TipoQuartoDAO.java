@@ -16,13 +16,12 @@ public class TipoQuartoDAO {
 		estrutura.setString(1, tipoQuarto.getDsTipoQuarto().toUpperCase());
 		ResultSet resultado = estrutura.executeQuery();
 		
+		
+		
 		while (resultado.next()) {
 			tipoQuarto.setCodTipoQuarto(resultado.getInt("CD_TIPO_QUARTO"));
 			tipoQuarto.setDsTipoQuarto(resultado.getString("DS_TIPO_QUARTO"));
 			tipoQuarto.setVlTipoQuarto(resultado.getDouble("VL_PRECO_QUARTO"));
-//			System.out.println("cod" + resultado.getInt("CD_TIPO_QUARTO"));
-//			System.out.println(tipoQuarto.getCodTipoQuarto());
-//			System.out.println(tipoQuarto.getDsTipoQuarto());
 			resultado.close();
 			estrutura.close();
 			return tipoQuarto;		

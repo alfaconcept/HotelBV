@@ -68,13 +68,9 @@ public class ServletReserva extends HttpServlet {
 
 				
 				// Obtendo o quarto a ser reservado
-				// Precisamos alinhar qual forma usaremos para pesquisar o quarto (nome, codigo, tipo)
 				TipoQuarto tipoQuarto = new TipoQuarto();
 				tipoQuarto.setDsTipoQuarto(request.getParameter("rdQuarto"));
 				tipoQuarto = new TipoQuartoBO().pesquisarTipoQuarto(tipoQuarto, conn);	
-				
-				
-				
 				Quarto quarto = new Quarto();
 				quarto.setTipoQuarto(tipoQuarto);
 				quarto = new QuartoBO().pesquisarQuarto(quarto, conn); 
@@ -95,16 +91,17 @@ public class ServletReserva extends HttpServlet {
 				reserva.setQtAdulto(Integer.parseInt(request.getParameter("nrQtdAdulto")));
 				reserva.setQtCrianca(Integer.parseInt(request.getParameter("nrQtdCrianca")));
 				reserva.setQtQuarto(Integer.parseInt(request.getParameter("nrQtdQuarto")));
+				reserva.setDsObservacao(request.getParameter("txtDsObservacao"));
 				reserva.setStatusReserva(true);
 				reserva.calcularValorReserva();
 				
 				new ReservaBO().inserirReserva(reserva, conn);
 				conn.commit();
-//				conn.setAutoCommit(true);
+				conn.setAutoCommit(true);
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("reserva", reserva);
-				request.getRequestDispatcher("ResultadoReserva.jsp").forward(request, response);
+				response.sendRedirect("ResultadoReserva.jsp");
 				
 			} catch (Exception e) {
 //				try {
