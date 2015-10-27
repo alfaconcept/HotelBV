@@ -27,8 +27,8 @@ public final class ConnectionFactory {
 		*/
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		return DriverManager.getConnection("jdbc:oracle:thin:/:@127.0.0.1:1521:ORCL");
-//		return DriverManager.getConnection("jdbc:oracle:thin:/:@oracle.fiap.com.br:1521:ORCL","OPS$RM73897","310595");
+//		return DriverManager.getConnection("jdbc:oracle:thin:/:@127.0.0.1:1521:ORCL");
+		return DriverManager.getConnection("jdbc:oracle:thin:/:@oracle.fiap.com.br:1521:ORCL","OPS$RM73897","310595");
 	}
 
 }

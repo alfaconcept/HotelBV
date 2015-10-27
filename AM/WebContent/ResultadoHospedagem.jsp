@@ -1,12 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-Código de Hospedagem: ${hospedagem.codHospedagem }<br>
+Código de Hospedagem: ${hospedagem.cdHospedagem }<br>
+Código do Cliente: ${hospedagem.reserva.cliente.cdPessoa }<br>
+Código da Reserva: ${hospedagem.reserva.cdReserva }<br>
+Número do Quarto: ${hospedagem.reserva.tipoQuarto.nrQuarto }<br>
+Código do Funcionário: ${hospedagem.funcionario.cdPessoa }<br>
+<fmt:formatDate value="${hospedagem.dtEntrada }" var="dtEntrada" type="date" pattern="dd/MM/yy"/>
+Data de Check In: ${dtEntrada } <br>
+<fmt:formatDate value="${hospedagem.dtSaida }" var="dtSaida" type="date" pattern="dd/MM/yy" />
+Data de Check Out: ${dtSaida } <br>
 </body>
 </html>
