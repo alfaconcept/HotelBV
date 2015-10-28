@@ -1,11 +1,5 @@
 package br.com.fiap.DAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 import br.com.fiap.beans.Cliente;
 
 public class ClienteDAO {

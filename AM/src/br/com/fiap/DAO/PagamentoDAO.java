@@ -1,6 +1,7 @@
 package br.com.fiap.DAO;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DateFormat;
@@ -13,10 +14,35 @@ import br.com.fiap.beans.Pagamento;
 import br.com.fiap.beans.Reserva;
 import br.com.fiap.beans.TipoPagamento;
 
+
+/**
+* 
+* Classe CRUD da Classe Pagamento.
+* @author Elisama Alencar
+* @author Leonardo Savoia
+* @author Marcus Ferraz
+* @author Mauricio Grejanin
+* @version 1.0
+* @since 1.0
+* @see Pagamento
+*  
+* 
+*/
 public class PagamentoDAO {
 	
 	DateFormat df = new SimpleDateFormat("yyyy-MM-aa");
-
+	
+	/**
+	* Metodo para inserir o cadastro de PagamentoCartao no banco. 
+	* 
+	* @param  Pagamento pagamento, Connection conn
+	* @return objeto do tipo Pagamento.
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public int insertPagamentoCartao(Pagamento pagamento, Connection conn) throws Exception{
 		
 		String sql = "INSERT INTO T_AM_AFC_PAGAMENTO(CD_HOSPEDAGEM, CD_TIPO_FORMAPAG, DT_PAGAMENTO, VL_PAGAMENTO) "
@@ -39,6 +65,17 @@ public class PagamentoDAO {
 		return 1;
 	}
 	
+	/**
+	* Metodo para inserir o cadastro de PagamentoCheque no banco. 
+	* 
+	* @param  Reserva reserva, Connection conn, Pagamento pagamento
+	* @return objeto do tipo Pagamento.
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public int insertPagamentoCheque(Reserva reserva, Connection conn, Pagamento pagamento) throws Exception{
 		
 		String sql = "INSERT INTO T_AM_AFC_PAGAMENTO(CD_HOSPEDAGEM, CD_TIPO_FORMAPAG, DT_PAGAMENTO, VL_PAGAMENTO) "
@@ -74,7 +111,19 @@ public class PagamentoDAO {
 		
 		return 1;
 	}
-
+	
+	
+	/**
+	* Metodo para inserir o cadastro de PagamentoDinheiro no banco. 
+	* 
+	* @param  Pagamento pagamento, Connection conn
+	* @return objeto do tipo Pagamento.
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public int insertPagamentoDinheiro(Pagamento pagamento, Connection conn) throws Exception{
 		
 		String sql = "INSERT INTO T_AM_AFC_PAGAMENTO(CD_HOSPEDAGEM, CD_TIPO_FORMAPAG, DT_PAGAMENTO, VL_PAGAMENTO) "
@@ -91,6 +140,17 @@ public class PagamentoDAO {
 	}
 	
 	
+	/**
+	* Metodo que deleta o registro informado no parametro.. 
+	* 
+	* @param  Pagamento pagamento, Connection conn
+	* @return  void
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public void deletePagamentoCartao(Pagamento pagamento, Connection conn) throws Exception{
 		
 		String sql = "DELETE FROM T_AM_AFC_PAGAMENTO WHERE CD_HOSPEDAGEM = ?";
@@ -110,6 +170,18 @@ public class PagamentoDAO {
 		
 	}
 	
+	
+	/**
+	* Metodo que deleta o registro informado no parametro.. 
+	* 
+	* @param  Pagamento pagamento, Connection conn
+	* @return  void
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public void deletePagamentoCheque(Pagamento pagamento, Connection conn) throws Exception{
 		
 		String sql = "DELETE FROM T_AM_AFC_PAGAMENTO WHERE CD_HOSPEDAGEM = ?";
@@ -135,6 +207,17 @@ public class PagamentoDAO {
 		
 	}
 	
+	/**
+	* Metodo que deleta o registro informado no parametro.. 
+	* 
+	* @param  Pagamento pagamento, Connection conn
+	* @return  void
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public void deletePagamentoDinheiro(Pagamento pagamento, Connection conn) throws Exception{
 		
 		String sql = "DELETE FROM T_AM_AFC_PAGAMENTO WHERE CD_HOSPEDAGEM = ?";
@@ -154,6 +237,18 @@ public class PagamentoDAO {
 		
 	}
 	
+	
+	/**
+	* Metodo registra uma alteracao no cadastro PagamentoDinheiro. 
+	* 
+	* @param  Connection conn, Pagamento pagamento
+	* @return void
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public void updatePagamentoDinheiro(Connection conn, Pagamento pagamento) throws Exception{
 		
 		String sql = "UDPDATE T_AM_AFC_PAGAMENTO(CD_TIPO_FORMAPAG,DT_PAGAMENTO,VL_PAGAMENTO) VALUES(?,?,?)";
@@ -167,6 +262,18 @@ public class PagamentoDAO {
 		
 	}
 	
+	
+	/**
+	* Metodo registra uma alteracao no cadastro PagamentoCartao. 
+	* 
+	* @param  Connection conn, Pagamento pagamento
+	* @return void
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public void updatePagamentoCartao(Connection conn, Pagamento pagamento) throws Exception{
 		
 		String sql = "UDPDATE T_AM_AFC_PAGAMENTO SET CD_TIPO_FORMAPAG = ?, "
@@ -192,6 +299,17 @@ public class PagamentoDAO {
 	}
 	
 	
+	/**
+	* Metodo registra uma alteracao no cadastro PagamentoCheque. 
+	* 
+	* @param  Connection conn, Pagamento pagamento
+	* @return void
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
 	public void updatePagamentoCheque(Connection conn, Pagamento pagamento) throws Exception{
 		
 		String sql = "UDPDATE T_AM_AFC_PAGAMENTO SET CD_TIPO_FORMAPAG = ?, "

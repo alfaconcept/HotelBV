@@ -1,6 +1,7 @@
 package br.com.fiap.BO;
 
 import java.sql.Connection;
+
 import java.util.List;
 
 import br.com.fiap.DAO.QuartoDAO;
@@ -8,20 +9,44 @@ import br.com.fiap.beans.Quarto;
 import br.com.fiap.beans.Reserva;
 import br.com.fiap.excecoes.Excecoes;
 
+/**
+* 
+* Classe de Regra de neg–∑cio da Classe Quarto.
+* @author Elisama Alencar
+* @author Leonardo Savoia
+* @author Marcus Ferraz
+* @author Mauricio Grejanin
+* @version 1.0
+* @since 1.0
+* @see Quarto
+* @see QuartoDAO 
+* 
+*/
 public class QuartoBO {
 	
-	public void inserirQuarto(Quarto quarto) throws Exception{
+	/**
+	* Metodo que valida os dados informados de cadastro do Quarto antes de inserir no banco. 
+	* 
+	* @param Quarto quarto, Connection conn
+	* @return objeto do tipo Quarto.
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Quarto
+	*/
+	public void inserirQuarto(Quarto quarto, Connection conn) throws Exception{
 		if(quarto.getTipoQuarto().equals("")){
 			throw new Excecoes("Por favor, informe o tipo do quarto");
 			
 		}
 		
 		if(quarto.getNrQuarto() == 0) {
-			throw new Excecoes("Por favor, informe o n˙mero do quarto");
+			throw new Excecoes("Por favor, informe o n√∫mero do quarto");
 		}
 		
 		if(quarto.getNrAndar() == 0 ){
-			throw new Excecoes("Por favor, informe o n˙mero do andar");
+			throw new Excecoes("Por favor, informe o n√∫mero do andar");
 		}
 		
 		
@@ -29,54 +54,112 @@ public class QuartoBO {
 	
 	 //new QuartoDAO().insertQuarto(quarto);
 	
+	
+	/**
+	* Metodo que pesquisa uma Quarto no banco. 
+	* 
+	* @param  Quarto quarto, Connection conn
+	* @return objeto do tipo Quarto
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Quarto
+	*/
 	public Quarto pesquisarQuarto(Quarto quarto, Connection conn) throws Exception{
 		if(quarto.getTipoQuarto().getCodTipoQuarto() == 0){
-			throw new Excecoes("Por favor, informe o cÛdigo do tipo de quarto para realizar a busca");
+			throw new Excecoes("Por favor, informe o c√≥digo do tipo de quarto para realizar a busca");
 		}
 		
 		return new QuartoDAO().findQuarto(quarto, conn);
 	}
 	
 	
-	 public List<Quarto> listarQuarto() throws Exception{
+	/**
+	* Metodo que retorna uma lista com todas os Quartos cadastradas no banco de dados. 
+	* 
+	* @param Quarto quarto, Connection conn
+	* @return lista do tipo Quarto
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Quarto
+	*/
+	 public List<Quarto> listarQuarto(Quarto quarto, Connection conn) throws Exception{
 		 //return new QuartoDAO().selectAllQuarto();
-		 return null; // REMOVER ESTA LINHA AP”S CRIAR OS M…TODOS DAO
+		 return null; // REMOVER ESTA LINHA AP√ìS CRIAR OS M√âTODOS DAO
 	 }
 	 
 	 
-	 public void atualizarQuarto(Quarto quarto) throws Exception{
+	 /**
+		* Metodo que valida os dados enviados para registrar uma altera—Åao no Quarto. 
+		* 
+		* @param Quarto quarto, Connection conn
+		* @return  void
+		* @author Elisama Alencar
+		* @author Leonardo Savoia
+		* @author Marcus Ferraz
+		* @author Mauricio Grejanin
+		* @see  Quarto
+		*/
+	 public void atualizarQuarto(Quarto quarto, Connection conn) throws Exception{
 		 if(quarto.getTipoQuarto().equals("")){
 				throw new Excecoes("Por favor, informe o tipo do quarto");
 				
 			}
 			
 			if(quarto.getNrQuarto() == 0) {
-				throw new Excecoes("Por favor, informe o n˙mero do quarto");
+				throw new Excecoes("Por favor, informe o n√∫mero do quarto");
 			}
 			
 			if(quarto.getNrAndar() == 0 ){
-				throw new Excecoes("Por favor, informe o n˙mero do andar");
+				throw new Excecoes("Por favor, informe o n√∫mero do andar");
 			}
 			
 		 //new QuartoDAO().updateQuarto(quarto);
 	 }
 	 
-	 public void deletarQuarto(int cdQuarto) throws Exception{
-		 if(cdQuarto == 0){
-			 throw new Excecoes("Por favor, informe o cÛdigo do cliente");
+	 
+	 /**
+		* Metodo que chama o metodo deletar da classe QuartoDao. 
+		* 
+		* @param Quarto quarto, Connection conn
+		* @return  void
+		* @author Elisama Alencar
+		* @author Leonardo Savoia
+		* @author Marcus Ferraz
+		* @author Mauricio Grejanin
+		* @see  Quarto
+		*/
+	 public void deletarQuarto(Quarto quarto, Connection conn) throws Exception{
+		 if(quarto.getNrQuarto() == 0){
+			 throw new Excecoes("Por favor, informe o c√≥digo do cliente");
 			 // new QuartoDAO().deleteQuarto(cdQuarto);
 			 
 		 }
 	 }
 	 
+	 
+	 /**
+		* Metodo que atualiza o status da classe Quarto. 
+		* 
+		* @param Reserva reserva, Connection conn
+		* @return  void
+		* @author Elisama Alencar
+		* @author Leonardo Savoia
+		* @author Marcus Ferraz
+		* @author Mauricio Grejanin
+		* @see  Quarto
+		*/
 	 public void atualizarStatusQuarto(Reserva reserva, Connection conn) throws Exception{
 		 
 		 if(reserva.getCdReserva() == 0){
-			 throw new Excecoes("CÛdigo de reserva inv·lido");
+			 throw new Excecoes("C√≥digo de reserva inv√°lido");
 		 }
 		 
 		 if (reserva.getQuarto().getStatus().equals("")) {
-			throw new Excecoes("Status de reserva inv·lido");
+			throw new Excecoes("Status de reserva inv√°lido");
 		}
 		 
 		 new QuartoDAO().updateStatusQuarto(reserva, conn);
