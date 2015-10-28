@@ -72,8 +72,12 @@ public class QuartoBO {
 	 public void atualizarStatusQuarto(Reserva reserva, Connection conn) throws Exception{
 		 
 		 if(reserva.getCdReserva() == 0){
-			 throw new Excecoes("Codígo de reserva invalido");
+			 throw new Excecoes("Código de reserva inválido");
 		 }
+		 
+		 if (reserva.getQuarto().getStatus().equals("")) {
+			throw new Excecoes("Status de reserva inválido");
+		}
 		 
 		 new QuartoDAO().updateStatusQuarto(reserva, conn);
 		 

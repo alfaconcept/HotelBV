@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -73,7 +74,8 @@ public class ServletReserva extends HttpServlet {
 				tipoQuarto = new TipoQuartoBO().pesquisarTipoQuarto(tipoQuarto, conn);	
 				Quarto quarto = new Quarto();
 				quarto.setTipoQuarto(tipoQuarto);
-				quarto = new QuartoBO().pesquisarQuarto(quarto, conn); 
+				quarto = new QuartoBO().pesquisarQuarto(quarto, conn);
+				quarto.setStatus("Reservado");
 				
 				// Trabalhando com as datas da reserva
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -105,13 +107,13 @@ public class ServletReserva extends HttpServlet {
 				response.sendRedirect("reservar.jsp");
 				
 			} catch (Exception e) {
-//				try {
-//					conn.rollback();
-//				} catch (SQLException e1) {
-//					StringWriter errors = new StringWriter();
-//					e.printStackTrace(new PrintWriter(errors));
-//					response.getWriter().print(errors.toString());
-//				}
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					StringWriter errors = new StringWriter();
+					e.printStackTrace(new PrintWriter(errors));
+					response.getWriter().print(errors.toString());
+				}
 				StringWriter errors = new StringWriter();
 				e.printStackTrace(new PrintWriter(errors));
 				response.getWriter().print(errors.toString());
