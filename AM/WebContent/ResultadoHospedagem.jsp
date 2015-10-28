@@ -11,7 +11,7 @@
 Código de Hospedagem: ${hospedagem.cdHospedagem }<br>
 Código do Cliente: ${hospedagem.reserva.cliente.cdPessoa }<br>
 Código da Reserva: ${hospedagem.reserva.cdReserva }<br>
-Número do Quarto: ${hospedagem.reserva.tipoQuarto.nrQuarto }<br>
+Número do Quarto: ${hospedagem.reserva.quarto.nrQuarto }<br>
 Código do Funcionário: ${hospedagem.funcionario.cdPessoa }<br>
 <fmt:formatDate value="${hospedagem.dtEntrada }" var="dtEntrada" type="date" pattern="dd/MM/yy"/>
 Data de Check In: ${dtEntrada } <br>

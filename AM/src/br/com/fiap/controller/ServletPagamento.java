@@ -4,15 +4,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.fiap.BO.HospedagemBO;
+import br.com.fiap.beans.Consumo;
 import br.com.fiap.beans.Hospedagem;
 import br.com.fiap.conexao.ConnectionFactory;
 
@@ -50,6 +51,10 @@ public class ServletPagamento extends HttpServlet {
 				Hospedagem hospedagem = new Hospedagem();
 				hospedagem.setCdHospedagem(Integer.parseInt(request.getParameter("nrHospedagem")));
 				hospedagem = new HospedagemBO().consultarHospedagem(hospedagem, conn);
+				
+				List <Consumo> listConsumo = new ArrayList<Consumo>();
+				listConsumo = new ConsumoBO().
+				
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("hospedagem", hospedagem);
