@@ -70,9 +70,10 @@ public class Consumo {
 		return vlServicoTotal;
 	}
 
-	public void setVlServicoTotal() {
+	public void setVlServicoTotal( double vlTotConsumo) {
 		// O valor total do consumo é igual ao valor do produto/serviço x quantidade
-		this.vlServicoTotal = this.tipoServico.getVlProdutoServico() * this.qtConsumo;
+		//this.vlServicoTotal = this.tipoServico.getVlProdutoServico() * this.qtConsumo;
+		this.vlServicoTotal = vlTotConsumo;
 	}
 	
 }
