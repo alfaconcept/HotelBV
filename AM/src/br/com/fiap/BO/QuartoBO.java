@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.fiap.DAO.QuartoDAO;
 import br.com.fiap.beans.Quarto;
+import br.com.fiap.beans.Reserva;
 import br.com.fiap.excecoes.Excecoes;
 
 public class QuartoBO {
@@ -66,6 +67,16 @@ public class QuartoBO {
 			 // new QuartoDAO().deleteQuarto(cdQuarto);
 			 
 		 }
+	 }
+	 
+	 public void atualizarStatusQuarto(Reserva reserva, Connection conn) throws Exception{
+		 
+		 if(reserva.getCdReserva() == 0){
+			 throw new Excecoes("Codígo de reserva invalido");
+		 }
+		 
+		 new QuartoDAO().updateStatusQuarto(reserva, conn);
+		 
 	 }
 	
 	

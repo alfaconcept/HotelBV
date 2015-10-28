@@ -43,5 +43,6 @@ public class HospedagemDAO {
 		}		
 		return null;
 	}
+
 	
 }

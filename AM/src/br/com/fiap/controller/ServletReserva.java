@@ -96,6 +96,7 @@ public class ServletReserva extends HttpServlet {
 				reserva.calcularValorReserva();
 				
 				new ReservaBO().inserirReserva(reserva, conn);
+				new QuartoBO().atualizarStatusQuarto(reserva, conn);
 				conn.commit();
 				conn.setAutoCommit(true);
 				
