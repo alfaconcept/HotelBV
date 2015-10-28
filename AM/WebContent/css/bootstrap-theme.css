@@ -104,6 +104,13 @@ fieldset[disabled] .btn-default.active {
   background-color: #e0e0e0;
   background-image: none;
 }
+hr {
+    height: 20px;
+    background-color:#000000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 75%;
+}
 .btn-primary {
   background-image: -webkit-linear-gradient(top, #337ab7 0%, #265a88 100%);
   background-image:      -o-linear-gradient(top, #337ab7 0%, #265a88 100%);

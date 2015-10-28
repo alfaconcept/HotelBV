@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html class="full">
+<html class="full" lang="en">
 
 
 <head>
@@ -76,15 +75,15 @@
 
     <!-- Inicio do container -->
     <div class="container">
-            <br><br>    
+            <br>  
             <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                <form role="form" action="ServletReserva?action=reservar" method="post">
+                                <form role="form" action="ServletReserva?action=reservar" method="post" id="formReserva">
                                     <div class="col-md-6">
                                     
-                                        
+                                       
                                     <div class="panel panel-default" width="300px">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">
@@ -93,27 +92,35 @@
                                         </div>
                                         <div class="panel-body">
 
-                                            <input type="radio" name="rdQuarto" id="radios-standard" value="standart" checked="checked"> 
+                                            <input type="radio" name="rdQuarto" id="rdStandard" value="standard" checked="checked"> 
                                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label for="radios"><img src="img/standard_v2.png" class="img-thumbnail"></label>   
                                             </div>
                                         
                                         <div class="panel-body">
-                                            <input type="radio" name="rdQuarto" id="radios-master" value="master">
+                                            <input type="radio" name="rdQuarto" id="rdMaster" value="master">
                                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="img/master.png" class="img-thumbnail">
                                         </div>
 
                                         <div class="panel-body">
-                                            <input type="radio" name="rdQuarto" id="radios-luxo" value="luxo">
+                                            <input type="radio" name="rdQuarto" id="rdLuxo" value="luxo">
                                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="img/luxo.png" class="img-thumbnail">
                                         </div>
 
                                         <div class="panel-body">
-                                            <input type="radio" name="rdQuarto" id="radios-master-luxo" value="master luxo">
+                                            <input type="radio" name="rdQuarto" id="rdMasterLuxo" value="master luxo">
                                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="img/master_luxo.png" class="img-thumbnail">
                                         </div>
 
                                         <div class="panel-footer">
-                                            <p align="right">Valor total: <strong style="color:red">R$ 1.1245,00</strong></p>
+                                           <div class="alert alert-success alert-dismissable">
+                 
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                                ×
+                                            </button>
+                                            <h4>
+                                                Atenção!
+                                            </h4>Apenas o quarto <strong>LUXO</strong> possui hidro, e apenas o quarto <strong>MASTER LUXO</strong> possui sauna. 
+                                        </div> 
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -125,31 +132,30 @@
 
                                     <div class="col-md-6">
 
-                                    <center><img src="img/topo_reservar.png" class="img-responsive"></center><br>
+                                    <center><img src="img/topo_reservar.png" class="img-responsive"></center>
                                         
                                             <div class="form-group">
                                                  
                                                 <label for="nomeHospede">
                                                     Nome:
                                                 </label>
-                                                <input type="text" class="form-control" value="${reserva.cliente.nmPessoa}"/>
+                                                <input type="text" name="txtNome" class="form-control" value="${reserva.cliente.nmPessoa }"/>
                                             </div>
 
                                             <div class="form-group">
                                             <label for="emailHospede">
                                                     E-mail:
                                                 </label>
-                                                <input type="email" class="form-control" name="txtEmail" value="thaina@gmail.com"/>
+                                                <input type="email" name="txtEmail" class="form-control" />
                                             </div>
                                             
-                                            <div class="form-group">
-                                            <label for="pwdHospede">
-                                                    Senha:
+											<div class="form-group">
+                                            <label for="senhaHospede">
+                                                   Senha:
                                                 </label>
-                                                <input type="password" class="form-control" name="pwdSenha" value="th123456"/>
+                                                <input type="password" name="pwdSenha" class="form-control" />
                                             </div>
 
-                                            <hr>
 
                                             <div class="form-group">
                                                  
@@ -159,68 +165,114 @@
                                                 <input type="date" name="dtEntrada"/>
 
                                                  <label for="dataSaida">
-                                                    &nbspData de SaÃ­da: 
+                                                    &nbspData de Saída: 
                                                 </label>
                                                 <input type="date" name="dtSaida"/>
 
-                                            </div><br>
+                                            </div>
 
                                             
                                             <div class="form-group">
-                                              <label for="radios">Qtde. CrianÃ§as: </label>
                                               
-                                                <label class="radio-inline" for="radios-0">
-                                                  <input type="radio" name="nrQtdCrianca" id="radios-0" value="1" checked="checked">
-                                                  1
-                                                </label> 
-                                                <label class="radio-inline" for="radios-1">
-                                                  <input type="radio" name="nrQtdCrianca" id="radios-1" value="2">
-                                                  2
-                                                </label> 
-                                                <label class="radio-inline" for="radios-2">
-                                                  <input type="radio" name="nrQtdCrianca" id="radios-2" value="3">
-                                                  3
-                                                </label> 
-                                                <label class="radio-inline" for="radios-3">
-                                                  <input type="radio" name="nrQtdCrianca" id="radios-3" value="4">
-                                                  4
-                                                </label>
-                                                <br><br>
+                                                
                                                 <label for="radios">Qtde. Adultos:&nbsp</label>
+
+                                                <label class="radio-inline" for="radios-3">
+                                                  <input type="radio" name="rdAdulto" id="radios-0" value="0" checked="checked">
+                                                  0
+                                                </label>
                                               
                                                 <label class="radio-inline" for="radios-0">
-                                                  <input type="radio" name="nrQtdAdulto" id="radios-0" value="1" checked="checked">
+                                                  <input type="radio" name="rdAdulto" id="radios-1" value="1" >
                                                   1
                                                 </label> 
                                                 <label class="radio-inline" for="radios-1">
-                                                  <input type="radio" name="nrQtdAdulto" id="radios-1" value="2">
+                                                  <input type="radio" name="rdAdulto" id="radios-2" value="2">
                                                   2
                                                 </label> 
                                                 <label class="radio-inline" for="radios-2">
-                                                  <input type="radio" name="nrQtdAdulto" id="radios-2" value="3">
+                                                  <input type="radio" name="rdAdulto" id="radios-3" value="3">
                                                   3
                                                 </label> 
                                                 <label class="radio-inline" for="radios-3">
-                                                  <input type="radio" name="nrQtdAdulto" id="radios-3" value="4">
+                                                  <input type="radio" name="rdAdulto" id="radios-4" value="4">
                                                   4
                                                 </label>
-                                                <label > QtdQuarto:
-                                                  <input type="text" name="nrQtdQuarto" id="radios-3" value="4">
-                                                  
+
+                                                <br><br>
+
+                                                <label for="radios">Qtde. Crianças: </label>
+
+                                              <label class="radio-inline" for="radios-0">
+                                                  <input type="radio" name="rdCrianca" id="radios-0" value="0" checked="checked">
+                                                  0
+                                                </label> 
+                                                <label class="radio-inline" for="radios-0">
+                                                  <input type="radio" name="rdCrianca" id="radios-0" value="1">
+                                                  1
+                                                </label> 
+                                                <label class="radio-inline" for="radios-1">
+                                                  <input type="radio" name="rdCrianca" id="radios-1" value="2">
+                                                  2
+                                                </label> 
+                                                <label class="radio-inline" for="radios-2">
+                                                  <input type="radio" name="rdCrianca" id="radios-2" value="3">
+                                                  3
+                                                </label> 
+                                                <label class="radio-inline" for="radios-3">
+                                                  <input type="radio" name="rdCrianca" id="radios-3" value="4">
+                                                  4
                                                 </label>
-                                                <input type="submit" value="Testar"> 
-
-
+                                                
+                                                <br><br>
+                                                
+                                                <label for="radios">Qtde. Quartos: </label>
+                                                <label class="radio-inline" for="radios-0">
+                                                  <input type="radio" name="rdQtdQuarto" id="radios-0" value="1" checked="checked">
+                                                  1
+                                                </label> 
+                                                <label class="radio-inline" for="radios-1">
+                                                  <input type="radio" name="rdQtdQuarto" id="radios-1" value="2">
+                                                  2
+                                                </label> 
+                                                <label class="radio-inline" for="radios-2">
+                                                  <input type="radio" name="rdQtdQuarto" id="radios-2" value="3">
+                                                  3
+                                                </label> 
+                                                <label class="radio-inline" for="radios-3">
+                                                  <input type="radio" name="rdQtdQuarto" id="radios-3" value="4">
+                                                  4
+                                                </label>
 
                                             </div>
-                                        </form>    
-                                    </div>
+                                           <div class="form-group">
+                                                 <label for="dataEntrada">
+                                                    Observação: 
+                                                </label>
+                                                <textarea class="form-control" id="textarea" name="txtObservacao">Ex.: Fumante.</textarea>
+                                            </div>
 
+                                            <center><br>
+                                            
+                                            <c:choose>
+                                            	<c:when test="${empty reserva }">
+                                            		<a href="#" onclick="document.getElementById('formReserva').submit()" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span> GERAR RESERVA</a>
+                                            	</c:when>
+                                            	<c:when test="${not empty reserva }">
+                                            		<a href="#" onclick="return confirm(Confirmar reserva?)" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span> CONFIRMAR RESERVA</a>
+                                            	</c:when>
+                                            </c:choose>
+                                            
+                                            
+                                            
+                                            &nbsp<a href="#" class="btn btn-default btn-lg">Cancelar</a></center>
+                                    </div>
+									</form>
                                     </div>
                                 </div>
 
                             </div>
-                            <center><br><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span> GERAR RESERVA</a>&nbsp<a href="#" class="btn btn-default btn-lg"></span> Cancelar</a></center>  
+                              
                             
                         </div>
             </div>
@@ -285,11 +337,11 @@
                     <div class="alert alert-dismissable alert-success">
                          
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                            Ã—
+                            ×
                         </button>
                         <h4>
                             Hospede!
-                        </h4> <strong>Atencao!</strong> DisponÃ­vel somente para pessoas fÃ­sicas. <a href="#" class="alert-link">Leia o Regulamento</a>
+                        </h4> <strong>Atencao!</strong> Disponível somente para pessoas físicas. <a href="#" class="alert-link">Leia o Regulamento</a>
                     </div>
                 </div>
                 <div class="col-md-6">

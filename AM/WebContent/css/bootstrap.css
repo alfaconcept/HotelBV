@@ -44,6 +44,15 @@ audio:not([controls]) {
 template {
   display: none;
 }
+#relativo{
+  display: none;
+}
+#relativo1{
+  display: none;
+}
+#relativo2{
+  display: none;
+}
 a {
   background-color: transparent;
 }

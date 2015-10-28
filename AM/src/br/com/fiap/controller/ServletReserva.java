@@ -57,6 +57,7 @@ public class ServletReserva extends HttpServlet {
 		
 		if (request.getParameter("action").equals("reservar")){
 				Connection conn = null;
+				HttpSession session = null;
 			try {				
 				conn = ConnectionFactory.controlarInstancia().getConnection();	
 				conn.setAutoCommit(false);
@@ -90,10 +91,10 @@ public class ServletReserva extends HttpServlet {
 				reserva.setQuarto(quarto);
 				reserva.setDtEntrada(dtEntrada);
 				reserva.setDtSaida(dtSaida);
-				reserva.setQtAdulto(Integer.parseInt(request.getParameter("nrQtdAdulto")));
-				reserva.setQtCrianca(Integer.parseInt(request.getParameter("nrQtdCrianca")));
-				reserva.setQtQuarto(Integer.parseInt(request.getParameter("nrQtdQuarto")));
-				reserva.setDsObservacao(request.getParameter("txtDsObservacao"));
+				reserva.setQtAdulto(Integer.parseInt(request.getParameter("rdAdulto")));
+				reserva.setQtCrianca(Integer.parseInt(request.getParameter("rdCrianca")));
+				reserva.setQtQuarto(Integer.parseInt(request.getParameter("rdQtdQuarto")));
+				reserva.setDsObservacao(request.getParameter("txtObservacao"));
 				reserva.setStatusReserva(true);
 				reserva.calcularValorReserva();
 				
@@ -102,18 +103,18 @@ public class ServletReserva extends HttpServlet {
 				conn.commit();
 				conn.setAutoCommit(true);
 				
-				HttpSession session = request.getSession();
+				session = request.getSession();
 				session.setAttribute("reserva", reserva);
 				response.sendRedirect("reservar.jsp");
 				
 			} catch (Exception e) {
-				try {
-					conn.rollback();
-				} catch (SQLException e1) {
-					StringWriter errors = new StringWriter();
-					e.printStackTrace(new PrintWriter(errors));
-					response.getWriter().print(errors.toString());
-				}
+//				try {
+//					conn.rollback();
+//				} catch (SQLException e1) {
+//					StringWriter errors = new StringWriter();
+//					e.printStackTrace(new PrintWriter(errors));
+//					response.getWriter().print(errors.toString());
+//				}
 				StringWriter errors = new StringWriter();
 				e.printStackTrace(new PrintWriter(errors));
 				response.getWriter().print(errors.toString());
