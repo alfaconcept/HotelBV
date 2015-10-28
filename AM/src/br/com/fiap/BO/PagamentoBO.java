@@ -40,6 +40,19 @@ public class PagamentoBO {
 		return 1;
 	}
 	
+	/**
+	* Metodo que valida se o código da hospedagem foi preenchido para efetuar a busca do pagamento pelo
+	* PagamentoDAO.
+	*  
+	* @param  Connection conexao, Hospedagem hospedagem
+	* @return objeto do tipo Pagamento.
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
+	
 	public Pagamento retornaPagamento(Hospedagem hospedagem, Connection conn) throws Exception{
 		
 		if(hospedagem.getCdHospedagem() == 0){
