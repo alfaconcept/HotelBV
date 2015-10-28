@@ -345,6 +345,18 @@ public class PagamentoDAO {
 		
 	}
 	
+	/**
+	* Metodo que retorna uma lista de pagamentos do banco de dados. 
+	* 
+	* @param  Connection conn
+	* @return Pagamento
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
+	
 	public List<Pagamento> selectAllPagamentos(Connection conn) throws Exception{
 		
 		List<Pagamento> lstPagamento = new ArrayList<Pagamento>();
@@ -383,7 +395,20 @@ public class PagamentoDAO {
 		return lstPagamento;
 	}
 	
-public Pagamento returnPagamento(Hospedagem hospedagem, Connection conn) throws Exception{
+	
+	/**
+	* Metodo que retorna um pagamento consultando pelo código da Hospedagem 
+	* 
+	* @param  Connection conn, Hospedagem hospedagem
+	* @return Pagamento
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Pagamento
+	*/
+	
+	public Pagamento returnPagamento(Hospedagem hospedagem, Connection conn) throws Exception{
 		
 		String sql = "SELECT "
 				+ "  A.CD_HOSPEDAGEM, "
