@@ -8,15 +8,17 @@ public class Pagamento {
 	private Date horarioSaida;
 	private Funcionario funcionario;
 	private TipoPagamento tipoPagamento;
+	private double vlPagamento;
 	
 	public Pagamento(Hospedagem hospedagem, Date dtSaida, Date horarioSaida, Funcionario funcionario,
-			TipoPagamento tipoPagamento) {
+			TipoPagamento tipoPagamento, double vlPagamento) {
 		super();
 		this.hospedagem = hospedagem;
 		this.dtSaida = dtSaida;
 		this.horarioSaida = horarioSaida;
 		this.funcionario = funcionario;
 		this.tipoPagamento = tipoPagamento;
+		this.vlPagamento = vlPagamento;
 	}
 
 	public Pagamento() {
@@ -62,6 +64,14 @@ public class Pagamento {
 	public void setTipoPagamento(TipoPagamento tipoPagamento) {
 		this.tipoPagamento = tipoPagamento;
 	}
-		
+
+	public double getVlPagamento() {
+		return vlPagamento;
+	}
+
+	public void setVlPagamento(double vlPagamento) {
+		this.vlPagamento = vlPagamento;
+	}
+			
 	
 }
