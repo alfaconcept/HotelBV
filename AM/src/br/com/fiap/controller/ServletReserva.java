@@ -93,7 +93,7 @@ public class ServletReserva extends HttpServlet {
 				reserva.setDtSaida(dtSaida);
 				reserva.setQtAdulto(Integer.parseInt(request.getParameter("rdAdulto")));
 				reserva.setQtCrianca(Integer.parseInt(request.getParameter("rdCrianca")));
-				reserva.setQtQuarto(Integer.parseInt(request.getParameter("rdQtdQuarto")));
+				reserva.setQtQuarto(Integer.parseInt(request.getParameter("txtQtdQuarto")));
 				reserva.setDsObservacao(request.getParameter("txtObservacao"));
 				reserva.setStatusReserva(true);
 				reserva.calcularValorReserva();
