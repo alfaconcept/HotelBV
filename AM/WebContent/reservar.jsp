@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html class="full" lang="en">
 
@@ -34,7 +37,16 @@
 
 </head>
 
-<body>
+<c:choose>
+	<c:when test="${not empty reserva }">
+		<body onload="document.getElementById('modalReserva').showModal(); ">
+	</c:when>
+	<c:when test="${empty reserva }">
+		<body>
+	</c:when>
+</c:choose>
+
+
 
 	<!-- Navegacao -->
 	<nav class="navbar navbar-inverse navbar-fixed-bottom"
@@ -53,11 +65,11 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Sobre o hotel</a></li>
-					<li><a href="#">Reserve Ja</a></li>
+					<li><a href="index.html">Sobre o hotel</a></li>
+					<li><a href="reservar.jsp">Reserve Ja</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-phone"></span>Boa
 							Viagem Mobile</a></li>
-					<li><a href="#">Acesso Funcionario</a></li>
+
 				</ul>
 
 			</div>
@@ -67,16 +79,15 @@
 	</nav>
 
 	<!-- Inicio do container -->
+
 	<div class="container">
-		<br>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-
-						<form role="form" action="ServletReserva?action=reserva"
-							method="post">
-
+		<form role="form" action="ServletReserva?action=reservar"
+			method="post" id="formReserva">
+			<br>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
 							<div class="col-md-6">
 
 
@@ -121,22 +132,13 @@
 										</div>
 									</div>
 								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label" for="button1id"></label>
-
-								</div>
-
 							</div>
 
 							<div class="col-md-6">
 
-								<center>
-									<img src="img/topo_reservar.png" class="img-responsive">
-								</center>
-
-
-								<img src="img/decorative.gif"
-									class="img-responsive center-block"><br>
+								<img src="img/topo_reservar.png"
+									class="img-responsive center-block"> <img
+									src="img/decorative.gif" class="img-responsive center-block"><br>
 
 
 
@@ -165,10 +167,9 @@
 									</label> <label class="radio-inline" for="radios-3"> <input
 										type="radio" name="rdAdulto" id="radios-4" value="4">
 										4
-									</label> <br>
-									<br> <label for="radios">Qtde. Crianças: </label> <label
-										class="radio-inline" for="radios-0"> <input
-										type="radio" name="rdCrianca" id="radios-0" value="0"
+									</label> <br> <br> <label for="radios">Qtde.
+										Crianças:&nbsp</label> <label class="radio-inline" for="radios-0">
+										<input type="radio" name="rdCrianca" id="radios-0" value="0"
 										checked="checked"> 0
 									</label> <label class="radio-inline" for="radios-0"> <input
 										type="radio" name="rdCrianca" id="radios-0" value="1">
@@ -182,11 +183,9 @@
 									</label> <label class="radio-inline" for="radios-3"> <input
 										type="radio" name="rdCrianca" id="radios-3" value="4">
 										4
-									</label> <br>
-									<br> <label for="radios">Qtde. Quarto(s): </label> <input
-										type="number" name="txtQtdQuarto" min="1" max="10" value="1">
-
-									</label>
+									</label> <br> <br> <label for="radios">Qtde.
+										Quarto(s):&nbsp</label> <input type="number" name="txtQtdQuarto"
+										min="1" max="10" value="1"> </label>
 
 
 								</div>
@@ -197,142 +196,137 @@
 								</div>
 
 								<center>
-									<br>
-									<a href="#" class="btn btn-default btn-lg" data-toggle="modal"
-										data-target=".bs-example-modal-sm"><span
+									<br> <a href="#" class="btn btn-default btn-lg"
+										data-toggle="modal" data-target=".bs-example-modal-sm"><span
 										class="glyphicon glyphicon-shopping-cart"></span> GERAR
-										RESERVA</a>&nbsp<a href="#" class="btn btn-default btn-lg"></span>
+										RESERVA</a>&nbsp<a href="index.html" class="btn btn-default btn-lg"></span>
 										Cancelar</a>
 								</center>
 							</div>
-						</form>
+
+						</div>
 					</div>
+
 				</div>
+
 
 			</div>
 
+			<div id="modalReserva" class="modal fade bs-example-modal-sm"
+				tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
 
-		</div>
-	</div>
-	</div>
-	<!-- Fim do container -->
+						<!-- Modal para logar ou cadastrar -->
 
-	</div>
-
-	<div id="modalReserva" class="modal fade bs-example-modal-sm"
-		tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-
-				<!-- Modal para logar ou cadastrar -->
-
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
+						<div class="container-fluid">
 							<div class="row">
-								<br>
-								<center>
-									<img src="img/hotel_preto.png">
-								</center>
-								<div class="col-md-6">
-									<h3 class="text-center">
-										<br> Ja tenho cadastro<br>
-									</h3>
-									<form class="form-horizontal" role="form"  action="ServletReserva?action=reservar" method="post">
-										<div class="form-group">
+								<div class="col-md-12">
+									<div class="row">
+										<br>
+										<center>
+											<img src="img/hotel_preto.png">
+										</center>
+										<div class="col-md-6">
+											<h3 class="text-center">
+												<br> Ja tenho cadastro<br>
+											</h3>
 
-											<label for="inputEmail3" class="col-sm-2 control-label">
-												Email </label>
-											<div class="col-sm-10">
-												<input type="email" class="form-control" id="inputEmail3" />
-											</div>
-											</div>
-										<div class="form-group">
+											<div class="form-group">
 
-											<label for="inputPassword3" class="col-sm-2 control-label">
-												Senha </label>
-											<div class="col-sm-10">
-												<input type="password" class="form-control"
-													id="inputPassword3" />
+												<label for="inputEmail" class="col-sm-2 control-label">
+													Email </label>
+												<div class="col-sm-10">
+													<input type="email" name="txtEmail" class="form-control"
+														id="loginEmail" />
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
-												<div class="checkbox">
+											<div class="form-group">
 
-													<label> <input type="checkbox" /> Nao me deixe
-														esquecer
-													</label>
+												<label for="inputPassword" class="col-sm-2 control-label">
+													Senha </label>
+												<div class="col-sm-10">
+													<input type="password" name="pwdSenha" class="form-control"
+														id="loginSenha" />
+												</div>
+											</div>
+											<br>
+											<div class="form-group">
+												<div class="col-sm-offset-2 col-sm-10">
+
+													<br> <a href="#" onclick="document.getElementById('formReserva').submit();" class="btn btn-default btn-lg"
+														data-toggle="modal" data-target=".bs-example-modal-sm"><span
+														class="glyphicon glyphicon-shopping-cart"></span> CONFIRMAR
+														RESERVA</a>&nbsp<a href="#" class="btn btn-default btn-lg"></span>
+														Cancelar</a>
+												</div>
+											</div>
+											<div class="col-sm-12">
+												<br>
+												<div id="alertVerde"
+													class="alert alert-dismissable alert-success">
+
+													<button type="button" class="close" data-dismiss="alert"
+														aria-hidden="true">×</button>
+													<h4>Hospede!</h4>
+													<strong>Atencao!</strong> Você receberá a confirmação da
+													sua hospedagem no e-mail <strong>xxx@xnxx.com!</strong>
+												</div>
+
+												<div id="alertVermelho"
+													class="alert alert-dismissable alert-danger">
+
+													<button type="button" class="close" data-dismiss="alert"
+														aria-hidden="true">×</button>
+													<h4>ERRO!</h4>
+													<strong>Atencao!</strong> Login e senha não conferem.
 												</div>
 											</div>
 										</div>
-										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
+										<div class="col-md-6">
+											<h3 class="text-center">
+												<br> Ainda nao tenho cadastro<br>
+											</h3>
+											<dl>
+												<dt>Nao perca essa oportunidade</dt>
+												<dd>Otimos precos com varias opcoes de pagamento.</dd>
+												<dt>Seguranca</dt>
+												<dd>Nosso sistema de reserva tem a qualidade Alfa
+													Concept.</dd>
+												<dd>Suas informacoes estarao seguras conosco.</dd>
+												<dt>Qualidade</dt>
+												<dd>Garantimos qualidade, sendo o melhor hospedeiro da
+													regiao.</dd>
+												<br>
 
-												<button type="submit" class="btn btn-default">
-													Acessar sua Conta</button>
-											</div>
+												<dd>Clique no botao abaixo, e faca seu cadastro!</dd>
+											</dl>
+											<button type="button" class="btn btn-lg btn-success">
+												<center>Ok! Quero me cadastrar</center>
+											</button>
+											<br> <br>
 										</div>
-									</form>
-									<div id="alertVerde"
-										class="alert alert-dismissable alert-success">
-
-										<button type="button" class="close" data-dismiss="alert"
-											aria-hidden="true">×</button>
-										<h4>Hospede!</h4>
-										<strong>Atencao!</strong> Você receberá a confirmação da sua
-										hospedagem no e-mail <strong>xxx@xnxx.com!</strong>
 									</div>
-
-									<div id="alertVermelho"
-										class="alert alert-dismissable alert-danger">
-
-										<button type="button" class="close" data-dismiss="alert"
-											aria-hidden="true">×</button>
-										<h4>ERRO!</h4>
-										<strong>Atencao!</strong> Login e senha não conferem.
-									</div>
-
 								</div>
-								<div class="col-md-6">
-									<h3 class="text-center">
-										<br> Ainda nao tenho cadastro<br>
-									</h3>
-									<dl>
-										<dt>Nao perca essa oportunidade</dt>
-										<dd>Otimos precos com varias opcoes de pagamento.</dd>
-										<dt>Seguranca</dt>
-										<dd>Nosso sistema de reserva tem a qualidade Alfa
-											Concept.</dd>
-										<dd>Suas informacoes estarao seguras conosco.</dd>
-										<dt>Qualidade</dt>
-										<dd>Garantimos qualidade, sendo o melhor hospedeiro da
-											regiao.</dd>
-										<br>
+								<div class="modal-footer">
 
-										<dd>Clique no botao abaixo, e faca seu cadastro!</dd>
-									</dl>
-									<button type="button" class="btn btn-lg btn-success">
-										<center>Ok! Quero me cadastrar</center>
-									</button>
-									<br>
-									<br>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Sair</button>
+
 								</div>
 							</div>
 						</div>
-						<div class="modal-footer">
 
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Sair</button>
-
-						</div>
 					</div>
 				</div>
-
 			</div>
-		</div>
+		</form>
 	</div>
+
+	<!-- Fim do container -->
+
+
 
 
 
