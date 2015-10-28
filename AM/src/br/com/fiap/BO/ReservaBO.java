@@ -47,7 +47,7 @@ public class ReservaBO {
 			throw new Excecoes("Reserva deve ter pelo menos um quarto");
 		}
 		
-		if (reserva.getTipoQuarto() == null) {
+		if (reserva.getQuarto() == null) {
 			throw new Excecoes("Informar o tipo de quarto");
 		}
 		

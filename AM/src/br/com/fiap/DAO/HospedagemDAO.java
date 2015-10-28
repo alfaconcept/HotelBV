@@ -29,7 +29,7 @@ public class HospedagemDAO {
 			cliente.setCdPessoa(resultado.getInt("CD_CLIENTE"));
 			quarto.setNrQuarto(resultado.getInt("NR_QUARTO"));
 			reserva.setCdReserva(resultado.getInt("CD_RESERVA"));
-			reserva.setTipoQuarto(quarto);
+			reserva.setQuarto(quarto);
 			reserva.setCliente(cliente);
 			funcionario.setCdPessoa(resultado.getInt("CD_FUNCIONARIO"));
 			hosp.setFuncionario(funcionario);

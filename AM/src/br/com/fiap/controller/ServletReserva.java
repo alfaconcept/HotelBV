@@ -85,7 +85,7 @@ public class ServletReserva extends HttpServlet {
 				Reserva reserva = new Reserva();
 				reserva.setDtSolicitacao(dtSolicitacao);
 				reserva.setCliente(cliente);
-				reserva.setTipoQuarto(quarto);
+				reserva.setQuarto(quarto);
 				reserva.setDtEntrada(dtEntrada);
 				reserva.setDtSaida(dtSaida);
 				reserva.setQtAdulto(Integer.parseInt(request.getParameter("nrQtdAdulto")));

@@ -9,7 +9,7 @@ public class Reserva {
 	private Date dtSaida;
 	private int qtAdulto;
 	private int qtCrianca;
-	private Quarto tipoQuarto;
+	private Quarto quarto;
 	private int qtQuarto;
 	private boolean statusReserva;
 	private double vlrReserva;
@@ -17,7 +17,7 @@ public class Reserva {
 	private String dsObservacao;
 	
 	public Reserva(int cdReserva, Date dtSolicitacao, Date dtEntrada,
-			Date dtSaida, int qtAdulto, int qtCrianca, Quarto tipoQuarto,
+			Date dtSaida, int qtAdulto, int qtCrianca, Quarto quarto,
 			int qtQuarto, boolean statusReserva, double vlrReserva,
 			Cliente cliente) {
 		super();
@@ -27,7 +27,7 @@ public class Reserva {
 		this.dtSaida = dtSaida;
 		this.qtAdulto = qtAdulto;
 		this.qtCrianca = qtCrianca;
-		this.tipoQuarto = tipoQuarto;
+		this.quarto = quarto;
 		this.qtQuarto = qtQuarto;
 		this.statusReserva = statusReserva;
 		this.vlrReserva = vlrReserva;
@@ -86,12 +86,12 @@ public class Reserva {
 		this.qtCrianca = qtCrianca;
 	}
 
-	public Quarto getTipoQuarto() {
-		return tipoQuarto;
+	public Quarto getQuarto() {
+		return quarto;
 	}
 
-	public void setTipoQuarto(Quarto tipoQuarto) {
-		this.tipoQuarto = tipoQuarto;
+	public void setQuarto(Quarto quarto) {
+		this.quarto = quarto;
 	}
 
 	public int getQtQuarto() {
@@ -139,7 +139,7 @@ public class Reserva {
 		int qtdDias = (int) (this.dtSaida.getTime() - this.dtEntrada.getTime()) / ((1000*60*60*24));	
 		
 		// Dias multiplicado pelo valor do quarto resulta no valor da reserva
-		double vlrReserva = (qtdDias*this.tipoQuarto.getTipoQuarto().getVlTipoQuarto());
+		double vlrReserva = (qtdDias*this.quarto.getTipoQuarto().getVlTipoQuarto());
 		// Atribui o valor da reserva
 		this.vlrReserva = vlrReserva;		
 	}		
