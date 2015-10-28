@@ -7,7 +7,21 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import br.com.fiap.beans.Cliente;
+import br.com.fiap.beans.Funcionario;
 
+/**
+* 
+* Classe CRUD da Classe Cliente.
+* @author Elisama Alencar
+* @author Leonardo Savoia
+* @author Marcus Ferraz
+* @author Mauricio Grejanin
+* @version 1.0
+* @since 1.0
+* @see Cliente
+*  
+* 
+*/
 public class ClienteDAO {
 	
 	DateFormat df= new SimpleDateFormat("yyyy-MM-dd");
@@ -15,6 +29,19 @@ public class ClienteDAO {
 	public ClienteDAO() throws Exception {
 		
 	}
+	
+	
+	/**
+	* Metodo que pesquisa um Cliente no Banco 
+	* 
+	* @param  Cliente cliente, Connection conn
+	* @return objeto do tipo Funcionario.
+	* @author Elisama Alencar
+	* @author Leonardo Savoia
+	* @author Marcus Ferraz
+	* @author Mauricio Grejanin
+	* @see  Cliente
+	*/
 	
 	public Cliente loginCliente(Cliente cliente, Connection conn) throws Exception{
 		
