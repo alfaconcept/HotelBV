@@ -41,18 +41,20 @@ public class ReservaDAO {
 		estrutura1.execute();
 		estrutura2.execute();
 		
-		sql = "SELECT CD_RESERVA FROM T_AM_AFC_RESERVA WHERE CD_RESERVA IN (SELECT SQ_AM_AFC_Hospedagem.currval)";
+		sql = "SELECT SQ_AM_AFC_RESERVA.currval FROM DUAL";
 		PreparedStatement estrutura3 = conn.prepareStatement(sql);
 		ResultSet resultado = estrutura3.executeQuery();
 		
-		reserva.setCdReserva(resultado.getInt("CD_RESERVA"));
+		while (resultado.next()) {
+			reserva.setCdReserva(resultado.getInt("CURRVAL"));	
+			estrutura1.close();
+			estrutura2.close();
+			estrutura3.close();
+			return reserva;			
+		}	
 		
+		return null;
 		
-		estrutura1.close();
-		estrutura2.close();
-		estrutura3.close();
-		
-		return reserva;
 	}	
 
 }
