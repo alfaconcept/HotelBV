@@ -120,7 +120,7 @@
                         <div class="form-group">
                           <label class="col-md-4 control-label" for="textinput"></label>  
                           <div class="col-md-4">
-                          <a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-ok"></span> Registrar Checkout</a>
+                          <a href="#" onclick= class="btn btn-default btn-lg"><span class="glyphicon glyphicon-ok"></span> Registrar Checkout</a>
 
                           </div>
                         </div>
