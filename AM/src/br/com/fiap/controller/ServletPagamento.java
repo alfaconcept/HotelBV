@@ -11,10 +11,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import br.com.fiap.BO.ConsumoBO;
 import br.com.fiap.BO.HospedagemBO;
+import br.com.fiap.BO.QuartoBO;
+import br.com.fiap.BO.ReservaBO;
 import br.com.fiap.beans.Consumo;
 import br.com.fiap.beans.Hospedagem;
+import br.com.fiap.beans.Quarto;
+import br.com.fiap.beans.Reserva;
 import br.com.fiap.conexao.ConnectionFactory;
 
 /**
@@ -52,10 +58,21 @@ public class ServletPagamento extends HttpServlet {
 				hospedagem.setCdHospedagem(Integer.parseInt(request.getParameter("nrHospedagem")));
 				hospedagem = new HospedagemBO().consultarHospedagem(hospedagem, conn);
 				
+				// Traz todos os consumos relacionados a reserva
 				List <Consumo> listConsumo = new ArrayList<Consumo>();
-				listConsumo = new ConsumoBO().
+				listConsumo = new ConsumoBO().listarConsumos(hospedagem, conn);
+				hospedagem.setConsumo(listConsumo);
 				
-				
+				// Traz os dados da reserva relacionados ao código da hospedagem
+				Reserva reserva = new Reserva();
+				reserva = new ReservaBO().findReserva(hospedagem, conn);
+				hospedagem.setReserva(reserva);
+				hospedagem.getReserva().calcularValorReserva();
+//				
+//				// Traz Funcionario relacionado a hospedagem
+//				Funcionario funcionario = new Funcionario();
+//				funcionario = new FuncionarioBO().pesquisarFuncionario(hospedagem, conn);
+//				
 				HttpSession session = request.getSession();
 				session.setAttribute("hospedagem", hospedagem);
 				

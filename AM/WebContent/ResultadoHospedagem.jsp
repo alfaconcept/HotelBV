@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<div>
+
+</div>
+
 Código de Hospedagem: ${hospedagem.cdHospedagem }<br>
 Código do Cliente: ${hospedagem.reserva.cliente.cdPessoa }<br>
 Código da Reserva: ${hospedagem.reserva.cdReserva }<br>

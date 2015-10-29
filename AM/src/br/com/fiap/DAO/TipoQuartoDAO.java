@@ -1,10 +1,10 @@
 package br.com.fiap.DAO;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import br.com.fiap.beans.Hospedagem;
 import br.com.fiap.beans.TipoQuarto;
 
 /**
@@ -54,4 +54,5 @@ public class TipoQuartoDAO {
 		}		
 		return null;
 	}
+	
 }

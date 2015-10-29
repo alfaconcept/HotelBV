@@ -2,9 +2,9 @@ package br.com.fiap.BO;
 
 import java.sql.Connection;
 
-
 import br.com.fiap.DAO.FuncionarioDAO;
 import br.com.fiap.beans.Funcionario;
+import br.com.fiap.beans.Hospedagem;
 import br.com.fiap.excecoes.Excecoes;
 
 
@@ -40,6 +40,13 @@ public class FuncionarioBO {
 		}
 		
 		 return new FuncionarioDAO().findFuncionario(funcionario, conn);
-		
 	}	
+	
+	public Funcionario pesquisarFuncionario (Hospedagem hospedagem , Connection conn) throws Exception{
+		if (hospedagem.getCdHospedagem() == 0) {
+			throw new Excecoes("Código de reserva inválido");
+		}
+		
+		return new FuncionarioDAO().findFuncionario(hospedagem, conn);
+	}
 }

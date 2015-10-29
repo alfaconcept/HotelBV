@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import br.com.fiap.beans.Hospedagem;
 import br.com.fiap.beans.Pagamento;
 import br.com.fiap.beans.Quarto;
 import br.com.fiap.beans.Reserva;
@@ -53,6 +54,10 @@ public class QuartoDAO {
 			}
 			return null;
 		}
+	
+	
+	
+	
 	
 	/**
 	* Metodo que atualiza o status do Quarto 

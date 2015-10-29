@@ -5,13 +5,14 @@ import java.sql.Connection;
 import java.util.List;
 
 import br.com.fiap.DAO.QuartoDAO;
+import br.com.fiap.beans.Hospedagem;
 import br.com.fiap.beans.Quarto;
 import br.com.fiap.beans.Reserva;
 import br.com.fiap.excecoes.Excecoes;
 
 /**
 * 
-* Classe de Regra de negзcio da Classe Quarto.
+* Classe de Regra de negÐ·cio da Classe Quarto.
 * @author Elisama Alencar
 * @author Leonardo Savoia
 * @author Marcus Ferraz
@@ -42,11 +43,11 @@ public class QuartoBO {
 		}
 		
 		if(quarto.getNrQuarto() == 0) {
-			throw new Excecoes("Por favor, informe o número do quarto");
+			throw new Excecoes("Por favor, informe o nÃºmero do quarto");
 		}
 		
 		if(quarto.getNrAndar() == 0 ){
-			throw new Excecoes("Por favor, informe o número do andar");
+			throw new Excecoes("Por favor, informe o nÃºmero do andar");
 		}
 		
 		
@@ -68,10 +69,18 @@ public class QuartoBO {
 	*/
 	public Quarto pesquisarQuarto(Quarto quarto, Connection conn) throws Exception{
 		if(quarto.getTipoQuarto().getCodTipoQuarto() == 0){
-			throw new Excecoes("Por favor, informe o código do tipo de quarto para realizar a busca");
+			throw new Excecoes("Por favor, informe o cÃ³digo do tipo de quarto para realizar a busca");
 		}
 		
 		return new QuartoDAO().findQuarto(quarto, conn);
+	}
+	
+	public Quarto pesquisarQuarto(Hospedagem hospedagem, Connection conn) throws Exception{
+		if(hospedagem.getCdHospedagem() == 0){
+			throw new Excecoes("Código de hospedagem inválido");
+		}
+		
+		return new QuartoDAO().findQuarto(hospedagem, conn);
 	}
 	
 	
@@ -88,12 +97,12 @@ public class QuartoBO {
 	*/
 	 public List<Quarto> listarQuarto(Quarto quarto, Connection conn) throws Exception{
 		 //return new QuartoDAO().selectAllQuarto();
-		 return null; // REMOVER ESTA LINHA APÓS CRIAR OS MÉTODOS DAO
+		 return null; // REMOVER ESTA LINHA APÃ“S CRIAR OS MÃ‰TODOS DAO
 	 }
 	 
 	 
 	 /**
-		* Metodo que valida os dados enviados para registrar uma alteraсao no Quarto. 
+		* Metodo que valida os dados enviados para registrar uma alteraÑ�ao no Quarto. 
 		* 
 		* @param Quarto quarto, Connection conn
 		* @return  void
@@ -110,11 +119,11 @@ public class QuartoBO {
 			}
 			
 			if(quarto.getNrQuarto() == 0) {
-				throw new Excecoes("Por favor, informe o número do quarto");
+				throw new Excecoes("Por favor, informe o nÃºmero do quarto");
 			}
 			
 			if(quarto.getNrAndar() == 0 ){
-				throw new Excecoes("Por favor, informe o número do andar");
+				throw new Excecoes("Por favor, informe o nÃºmero do andar");
 			}
 			
 		 //new QuartoDAO().updateQuarto(quarto);
@@ -134,7 +143,7 @@ public class QuartoBO {
 		*/
 	 public void deletarQuarto(Quarto quarto, Connection conn) throws Exception{
 		 if(quarto.getNrQuarto() == 0){
-			 throw new Excecoes("Por favor, informe o código do cliente");
+			 throw new Excecoes("Por favor, informe o cÃ³digo do cliente");
 			 // new QuartoDAO().deleteQuarto(cdQuarto);
 			 
 		 }
@@ -155,11 +164,11 @@ public class QuartoBO {
 	 public void atualizarStatusQuarto(Reserva reserva, Connection conn) throws Exception{
 		 
 		 if(reserva.getCdReserva() == 0){
-			 throw new Excecoes("Código de reserva inválido");
+			 throw new Excecoes("CÃ³digo de reserva invÃ¡lido");
 		 }
 		 
 		 if (reserva.getQuarto().getStatus().equals("")) {
-			throw new Excecoes("Status de reserva inválido");
+			throw new Excecoes("Status de reserva invÃ¡lido");
 		}
 		 
 		 new QuartoDAO().updateStatusQuarto(reserva, conn);

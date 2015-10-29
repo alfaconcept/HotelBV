@@ -3,6 +3,7 @@ package br.com.fiap.BO;
 import java.sql.Connection;
 import java.util.List;
 
+import br.com.fiap.DAO.ConsumoDAO;
 import br.com.fiap.beans.Consumo;
 import br.com.fiap.beans.Hospedagem;
 import br.com.fiap.excecoes.Excecoes;

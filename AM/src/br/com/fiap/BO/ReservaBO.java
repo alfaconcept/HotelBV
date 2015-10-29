@@ -3,6 +3,7 @@ package br.com.fiap.BO;
 import java.sql.Connection;
 
 import br.com.fiap.DAO.ReservaDAO;
+import br.com.fiap.beans.Hospedagem;
 import br.com.fiap.beans.Reserva;
 import br.com.fiap.excecoes.Excecoes;
 
@@ -58,7 +59,14 @@ public class ReservaBO {
 		
 		return new ReservaDAO().insertReserva(reserva, conn);
 		
+	}
+	
+	public Reserva findReserva(Hospedagem hospedagem, Connection conn) throws Exception{
+		if (hospedagem.getCdHospedagem() == 0) {
+			throw new Excecoes("Código de hospedagem inválido");
+		}
 		
+		return new ReservaDAO().findReserva(hospedagem, conn);
 	}
 	
 }

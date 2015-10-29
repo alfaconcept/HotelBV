@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import br.com.fiap.DAO.TipoQuartoDAO;
+import br.com.fiap.beans.Hospedagem;
 import br.com.fiap.beans.TipoQuarto;
 import br.com.fiap.excecoes.Excecoes;
 
@@ -27,6 +28,15 @@ public class TipoQuartoBO {
 		}
 		
 		 return new TipoQuartoDAO().findTipoQuarto(tipoQuarto, conn);
+	
+	}
+	
+	public TipoQuarto pesquisarTipoQuarto(Hospedagem hospedagem, Connection conn) throws Exception{
+		if (hospedagem.getCdHospedagem() == 0) {
+			throw new Excecoes("Por favor, informe o tipo de quarto para realizar a busca");
+		}
+		
+		 return new TipoQuartoDAO().findTipoQuarto(hospedagem, conn);
 	
 	}
 	
