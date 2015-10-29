@@ -53,6 +53,14 @@ template {
 #relativo2{
   display: none;
 }
+#erro{
+  color: #000;
+  font-size: 120px;
+}
+#errosub{
+  color: #000;
+  font-size: 30px;
+}
 a {
   background-color: transparent;
 }

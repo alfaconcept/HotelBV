@@ -51,13 +51,13 @@
                         <a href="#">Sobre o hotel</a>
                     </li>
                     <li>
-                        <a href="#">Reserve Ja</a>
+                        <a href="reservar.jsp">Reserve Ja</a>
                     </li>
                     <li>
                         <a href="#"><span class="glyphicon glyphicon-phone"></span>Boa Viagem Mobile</a>
                     </li>
                     <li>
-                        <a href="#">Acesso Funcionario</a>
+                        <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Acesso Funcionario</a>
                     </li>
                 </ul>
                 
@@ -72,124 +72,59 @@
         <div class="row">
             <div class="col-md-6 col-sm-12" style="color:#fff">
             <br><br>
-                <h1><em>...o paraiso ao seu alcance!</em></h1>
-                <p><button class="btn-lg btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">RESERVE JA <span class="glyphicon glyphicon-shopping-cart"></span></a></p>
+                <h1>...o paraiso ao seu alcance!</h1>
+                <p><a href="reservar.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-shopping-cart"></span>RESERVAR</a></p>
             </div>
         </div>
        
     </div>
 
     <div id="modalReserva" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-md">
     <div class="modal-content">
      
     <!-- Modal para logar ou cadastrar -->
 
-    <div class="container-fluid">
+   <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="row"><br>
-            <center><img src="img/hotel_preto.png"></center>
-                <div class="col-md-6">
-                    <h3 class="text-center"><br>
-                        Ja tenho cadastro<br>
-                    </h3>
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                             
-                            <label for="inputEmail3" class="col-sm-2 control-label">
-                                Email
-                            </label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                             
-                            <label for="inputPassword3" class="col-sm-2 control-label">
-                                Senha
-                            </label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputPassword3" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <div class="checkbox">
-                                     
-                                    <label>
-                                        <input type="checkbox" /> Nao me deixe esquecer
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                 
-                                <button type="submit" class="btn btn-default">
-                                    Acessar sua Conta
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="alert alert-dismissable alert-success">
-                         
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                            ×
-                        </button>
-                        <h4>
-                            Hospede!
-                        </h4> <strong>Atencao!</strong> Disponível somente para pessoas físicas. <a href="#" class="alert-link">Leia o Regulamento</a>
+            <form class="form-horizontal" role="form"><br>
+            <img src="img/hotel_preto.png" class="img-responsive center-block"><br>
+                <center><legend>Acesso de Funcionário</legend></center>
+                <div class="form-group">
+                     
+                    <label for="inputEmail3" class="col-sm-2 control-label">
+                        Email
+                    </label>
+                    <div class="col-sm-9">
+                        <input name="txtEmail" type="email" class="form-control" id="inputEmail3" />
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <h3 class="text-center"><br>
-                        Ainda nao tenho cadastro<br>
-                    </h3>
-                    <dl>
-                        <dt>
-                            Nao perca essa oportunidade
-                        </dt>
-                        <dd>
-                            Otimos precos com varias opcoes de pagamento.
-                        </dd>
-                        <dt>
-                            Seguranca
-                        </dt>
-                        <dd>
-                            Nosso sistema de reserva tem a qualidade Alfa Concept.
-                        </dd>
-                        <dd>
-                            Suas informacoes estarao seguras conosco.
-                        </dd>
-                        <dt>
-                            Qualidade
-                        </dt>
-                        <dd>
-                            Garantimos qualidade, sendo o melhor hospedeiro da regiao.
-                        </dd><br>
-                        
-                        <dd>
-                            Clique no botao abaixo, e faca seu cadastro!
-                        </dd>
-                    </dl> 
-                    <button type="button" class="btn btn-lg btn-success">
-                        <center>Ok! Quero me cadastrar</center>
-                    </button><br><br>
+                <div class="form-group">
+                     
+                    <label for="inputPassword3" class="col-sm-2 control-label">
+                        Senha
+                    </label>
+                    <div class="col-sm-9">
+                        <input name="txtSenha" type="password" class="form-control" id="inputPassword3" />
+                    </div>
+
+                       <br><br><br> <button type="submit" class="btn btn-default center-block">
+                            Acessar Sistema
+                        </button>
                 </div>
-            </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-10">
+                         
+                         
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="modal-footer">
-                             
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                Sair
-                            </button> 
-                            
-                        </div>
     </div>
 </div>
-
-    </div>
+</div>
   </div>
 </div>
 

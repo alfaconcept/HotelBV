@@ -55,23 +55,23 @@ public class ServletPagamento extends HttpServlet {
 				conn = ConnectionFactory.controlarInstancia().getConnection();
 				
 				Hospedagem hospedagem = new Hospedagem();
-				hospedagem.setCdHospedagem(Integer.parseInt(request.getParameter("nrHospedagem")));
+				hospedagem.setCdHospedagem(Integer.parseInt(request.getParameter("txtCodHospedagem")));
 				hospedagem = new HospedagemBO().consultarHospedagem(hospedagem, conn);
 				
-				// Traz todos os consumos relacionados a reserva
-				List <Consumo> listConsumo = new ArrayList<Consumo>();
-				listConsumo = new ConsumoBO().listarConsumos(hospedagem, conn);
-				hospedagem.setConsumo(listConsumo);
-				
-				// Traz os dados da reserva relacionados ao código da hospedagem
-				Reserva reserva = new Reserva();
-				reserva = new ReservaBO().findReserva(hospedagem, conn);
-				hospedagem.setReserva(reserva);
-				hospedagem.getReserva().calcularValorReserva();
+//				// Traz todos os consumos relacionados a reserva
+//				List <Consumo> listConsumo = new ArrayList<Consumo>();
+//				listConsumo = new ConsumoBO().listarConsumos(hospedagem, conn);
+//				hospedagem.setConsumo(listConsumo);
 //				
-//				// Traz Funcionario relacionado a hospedagem
-//				Funcionario funcionario = new Funcionario();
-//				funcionario = new FuncionarioBO().pesquisarFuncionario(hospedagem, conn);
+//				// Traz os dados da reserva relacionados ao código da hospedagem
+//				Reserva reserva = new Reserva();
+//				reserva = new ReservaBO().findReserva(hospedagem, conn);
+//				hospedagem.setReserva(reserva);
+//				hospedagem.getReserva().calcularValorReserva();
+////				
+////				// Traz Funcionario relacionado a hospedagem
+////				Funcionario funcionario = new Funcionario();
+////				funcionario = new FuncionarioBO().pesquisarFuncionario(hospedagem, conn);
 //				
 				HttpSession session = request.getSession();
 				session.setAttribute("hospedagem", hospedagem);
