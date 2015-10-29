@@ -303,7 +303,7 @@
                     </table>
                 </div>
             </div>
-
+					<center><a href="#" class="btn btn-default btn-lg">Finalizar Checkout</a></center>
             <br>
             <div class="row">
                 <div class="col-md-12">
