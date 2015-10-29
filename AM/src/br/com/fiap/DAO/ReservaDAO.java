@@ -1,11 +1,14 @@
 package br.com.fiap.DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import br.com.fiap.beans.Hospedagem;
+import br.com.fiap.beans.Quarto;
 import br.com.fiap.beans.Reserva;
 
 public class ReservaDAO {
@@ -55,7 +58,48 @@ public class ReservaDAO {
 		
 		return null;
 		
-	}	
+	}
+	
+	public Reserva findReserva(Hospedagem hospedagem, Connection conn) throws Exception{
+		
+		String sql = "SELECT "
+				+ "A.CD_RESERVA,  "
+				+ "A.DT_INICIO_RESERVA, "
+				+ "A.DT_FINAL_RESERVA, "
+				+ "A.QT_ADULTO, "
+				+ "A.QT_CRIANCA,"
+				+ "B.NR_QUARTO,"
+				+ "B.QT_PESSOA_QUARTO,"
+				+ "FROM"
+				+ "	T_AM_AFC_RESERVA A"
+				+ "INNER JOIN"
+				+ "	T_AM_AFC_RESERVA_QUARTO B"
+				+ "WHERE A.CD_RESERVA = ? ";
+		
+		PreparedStatement estrutura = conn.prepareStatement(sql);
+		estrutura.setInt(1, hospedagem.getReserva().getCdReserva());
+		ResultSet resultado = estrutura.executeQuery();
+		
+		while(resultado.next()){
+			Reserva reserva = new Reserva();
+			Quarto quarto = new Quarto();
+			
+			
+			quarto.setNrQuarto(resultado.getInt("NR_QUARTO"));
+			reserva.setCdReserva(resultado.getInt("CD_RESERVA"));
+			reserva.setDtEntrada((Date) resultado.getDate("DT_INICIO_RESERVA"));
+			reserva.setDtSaida((Date) resultado.getDate("DT_FIM_RESERVA"));
+			reserva.setQtAdulto(resultado.getInt("QT_ADULTO"));
+			reserva.setQtCrianca(resultado.getInt("QT_CRIANCA"));
+			reserva.setQuarto(quarto);
+			
+			return reserva;
+		}
+		
+		return null;
+	}
+	
+	
 
 }
 
